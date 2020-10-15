@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class MilanesaStation : MonoBehaviour, IInteractuable
+public class MilanesaStation : FoodStationBase, IInteractuable
 {
     public int maxBreadCharges = 3;
     int _currentCharges;
@@ -11,8 +11,8 @@ public class MilanesaStation : MonoBehaviour, IInteractuable
     public Transform milanesaPosition;
     public Milanesa currentMilanga;
     public MilanesaMinigame minigame;
-    PlayerController _player;
-    Renderer _rend;
+
+    public bool inMinigame;
 
     public int CurrentCharges
     {
@@ -20,21 +20,21 @@ public class MilanesaStation : MonoBehaviour, IInteractuable
         private set => _currentCharges = Mathf.Clamp(value, 0, maxBreadCharges);
     }
 
-    void Start()
+    protected override void Start()
     {
         milanesaPosition = transform.Find("MilanesaPosition");
-        minigame = FindObjectOfType<MilanesaMinigame>();
+        minigame = FindObjectOfType<Canvas>().GetComponentInChildren<MilanesaMinigame>(true);
         CurrentCharges = maxBreadCharges;
-        _player = FindObjectOfType<PlayerController>();
-        _rend = GetComponentInChildren<Renderer>();
+        base.Start();
     }
 
-    public void Interact()
+    public override void Interact()
     {
         if (currentMilanga == null)
         {
             if (_player.itemPickup is Milanesa)
             {
+                currentMilanga = _player.itemPickup as Milanesa;
                 _player.ForceDepositObject(milanesaPosition);
             }
         }
@@ -62,8 +62,10 @@ public class MilanesaStation : MonoBehaviour, IInteractuable
 
     void StartMinigame()
     {
+        inMinigame = true;
         _player.SetOnMinigame(true);
         minigame.gameObject.SetActive(true);
+        minigame.Init(this);
     }
 
     public void EndMinigame()
@@ -75,12 +77,8 @@ public class MilanesaStation : MonoBehaviour, IInteractuable
             currentMilanga = null;
         }
 
+        inMinigame = false;
         _player.SetOnMinigame(false);
         minigame.gameObject.SetActive(false);
-    }
-
-    public void ActivateHighlight(bool state)
-    {
-        _rend.material.SetFloat("_Highlighted", state ? 1f : 0f);
     }
 }

@@ -25,15 +25,21 @@ public class MilanesaMinigame : MonoBehaviour
     public void OnClickMilanesa()
     {
         _station.OnClickMilanesa();
-        sideText.text = "Lado " + (_station.currentMilanga.currentSide ? "A" : "B");
-        progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideClicks() + "/" + _station.currentMilanga.clicksNeededBySide;
+        if (_station.inMinigame)
+        {
+            sideText.text = "Lado " + (_station.currentMilanga.currentSide ? "A" : "B");
+            progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideClicks() + "/" + _station.currentMilanga.clicksNeededBySide;
+        }
     }
 
     public void OnClickTurnOver()
     {
         _station.OnClickTurnOver();
-        sideText.text = "Lado " + (_station.currentMilanga.currentSide ? "A" : "B");
-        progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideClicks() + "/" + _station.currentMilanga.clicksNeededBySide;
+        if (_station.inMinigame)
+        {
+            sideText.text = "Lado " + (_station.currentMilanga.currentSide ? "A" : "B");
+            progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideClicks() + "/" + _station.currentMilanga.clicksNeededBySide;
+        }
     }
 
     public void EndMinigame()

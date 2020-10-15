@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
         ScanForInteractuables();
         CheckInteract();
         CheckMouseInput();
+
+        if (_keyboard.qKey.wasPressedThisFrame) print(_pointedInteractuable);
     }
 
     void FixedUpdate()
@@ -131,26 +133,33 @@ public class PlayerController : MonoBehaviour
                 if (_pointedInteractuable != interact)
                 {
                     if (_pointedInteractuable != null) _pointedInteractuable.ActivateHighlight(false);
-                    _pointedInteractuable = interact;
-                    _pointedInteractuable.ActivateHighlight(true);
+
+                    if (!_hasItem)
+                    {
+                        _pointedInteractuable = interact;
+                        _pointedInteractuable.ActivateHighlight(true);
+                    }
+                    else if (interact is FoodStationBase)
+                    {
+                        _pointedInteractuable = interact;
+                        _pointedInteractuable.ActivateHighlight(true);
+                    }
+                    else
+                    {
+                        _pointedInteractuable = null;
+                    }
                 }
             }
             else
             {
-                if (_pointedInteractuable != null)
-                {
-                    _pointedInteractuable.ActivateHighlight(false);
-                    _pointedInteractuable = null;
-                }
+                if (_pointedInteractuable != null) _pointedInteractuable.ActivateHighlight(false);
+                _pointedInteractuable = null;
             }
         }
         else
         {
-            if (_pointedInteractuable != null)
-            {
-                _pointedInteractuable.ActivateHighlight(false);
-                _pointedInteractuable = null;
-            }
+            if (_pointedInteractuable != null) _pointedInteractuable.ActivateHighlight(false);
+            _pointedInteractuable = null;
         }
     }
 
@@ -160,9 +169,16 @@ public class PlayerController : MonoBehaviour
         {
             if (_hasItem)
             {
-                itemPickup.Drop();
-                _hasItem = false;
-                itemPickup = null;
+                if (_pointedInteractuable != null)
+                {
+                    _pointedInteractuable.Interact();
+                }
+                else
+                {
+                    itemPickup.Drop();
+                    _hasItem = false;
+                    itemPickup = null;
+                }
             }
             else if (_pointedInteractuable != null)
             {
@@ -173,22 +189,6 @@ public class PlayerController : MonoBehaviour
                     itemPickup = pickup;
                 }
                 _pointedInteractuable.Interact();
-                /*RaycastHit rch;
-                var mask = LayerMask.GetMask("Interactuable");
-                var hits = Physics.Raycast(cam.transform.position, cam.transform.forward, out rch, 4, mask);
-                if (hits)
-                {
-                    print(rch.transform.name);
-
-                    if (rch.collider.GetComponent(typeof(IInteractuable)) is IInteractuable interact) interact.Interact();
-
-                    var pickup = rch.collider.GetComponent<PickupBase>();
-                    if (pickup)
-                    {
-                        _hasItem = true;
-                        itemPickup = pickup;
-                    }
-                }*/
             }
         }
     }
