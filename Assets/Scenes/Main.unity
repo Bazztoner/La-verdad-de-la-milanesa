@@ -1649,7 +1649,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1527556697}
-        m_MethodName: EndMinigame
+        m_MethodName: CancelMinigame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3868,6 +3868,7 @@ MonoBehaviour:
   milanesaPosition: {fileID: 0}
   currentMilanga: {fileID: 0}
   minigame: {fileID: 0}
+  inMinigame: 0
 --- !u!65 &1096169224
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5797,6 +5798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sideText: {fileID: 0}
   progressText: {fileID: 0}
+  endingSequence: 0
 --- !u!1 &1572994970
 GameObject:
   m_ObjectHideFlags: 0

@@ -52,7 +52,7 @@ public class MilanesaStation : FoodStationBase, IInteractuable
     public void OnClickMilanesa()
     {
         currentMilanga.OnClickMilanesa();
-        if (currentMilanga.IsCooked()) minigame.EndMinigame();
+        if (currentMilanga.IsCooked()) minigame.CompleteMinigame();
     }
 
     public void OnClickTurnOver()
@@ -72,7 +72,8 @@ public class MilanesaStation : FoodStationBase, IInteractuable
     {
         if (currentMilanga.IsCooked())
         {
-            /*give milanga to chaboncito*/
+            _player.ForceTakeObject(currentMilanga);
+
             CurrentCharges--;
             currentMilanga = null;
         }

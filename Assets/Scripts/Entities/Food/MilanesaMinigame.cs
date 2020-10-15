@@ -49,7 +49,12 @@ public class MilanesaMinigame : MonoBehaviour
         }
     }
 
-    public void EndMinigame()
+    public void CancelMinigame()
+    {
+       if(!endingSequence) _station.EndMinigame();
+    }
+
+    public void CompleteMinigame()
     {
         StartCoroutine(EndMinigameDelay(2f));
     }

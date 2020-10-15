@@ -204,6 +204,7 @@ public class PlayerController : MonoBehaviour
     {
         _hasItem = true;
         itemPickup = pickup;
+        itemPickup.Interact();
     }
 
     public void ForceDepositObject(Transform giveTo)
