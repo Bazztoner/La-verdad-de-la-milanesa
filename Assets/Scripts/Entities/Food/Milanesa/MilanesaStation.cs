@@ -13,18 +13,25 @@ public class MilanesaStation : FoodStationBase, IInteractuable
     public Milanesa currentMilanga;
     public MilanesaMinigame minigame;
 
+    Animator _an;
+
     public bool inMinigame;
 
     public int CurrentCharges
     {
         get => _currentCharges;
-        private set => _currentCharges = Mathf.Clamp(value, 0, maxBreadCharges);
+        private set
+        {
+            _currentCharges = Mathf.Clamp(value, 0, maxBreadCharges);
+            _an.SetInteger("charges", _currentCharges);
+        }
     }
 
     protected override void Start()
     {
         milanesaPosition = transform.Find("MilanesaPosition");
         minigame = FindObjectOfType<Canvas>().GetComponentInChildren<MilanesaMinigame>(true);
+        _an = GetComponentInChildren<Animator>();
         CurrentCharges = maxBreadCharges;
         base.Start();
     }
