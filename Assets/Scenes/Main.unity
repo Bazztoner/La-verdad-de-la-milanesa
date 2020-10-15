@@ -2051,7 +2051,7 @@ GameObject:
   - component: {fileID: 570065534}
   - component: {fileID: 570065533}
   - component: {fileID: 570065532}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2103,7 +2103,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0e33a02c5dc47c4990f4a884c9091f3, type: 2}
+  - {fileID: 2100000, guid: db61fdd9d0af3b441b400cb0ba9eb038, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3841,7 +3841,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1096169222}
-  m_Layer: 0
+  - component: {fileID: 1096169223}
+  m_Layer: 9
   m_Name: MilanesaStation
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -3864,6 +3865,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1096169223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096169221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9dd11eadb19fc4ebe68b8776f8f319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBreadCharges: 3
+  milanesaPosition: {fileID: 0}
+  currentMilanga: {fileID: 0}
+  minigame: {fileID: 0}
 --- !u!1 &1104148004
 GameObject:
   m_ObjectHideFlags: 0
@@ -5172,7 +5189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1440630435}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MilanesaPosition
   m_TagString: Untagged
   m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}

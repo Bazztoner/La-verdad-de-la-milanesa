@@ -12,6 +12,7 @@ public class MilanesaStation : MonoBehaviour, IInteractuable
     public Milanesa currentMilanga;
     public MilanesaMinigame minigame;
     PlayerController _player;
+    Renderer _rend;
 
     public int CurrentCharges
     {
@@ -25,6 +26,7 @@ public class MilanesaStation : MonoBehaviour, IInteractuable
         minigame = FindObjectOfType<MilanesaMinigame>();
         CurrentCharges = maxBreadCharges;
         _player = FindObjectOfType<PlayerController>();
+        _rend = GetComponentInChildren<Renderer>();
     }
 
     public void Interact()
@@ -75,5 +77,10 @@ public class MilanesaStation : MonoBehaviour, IInteractuable
 
         _player.SetOnMinigame(false);
         minigame.gameObject.SetActive(false);
+    }
+
+    public void ActivateHighlight(bool state)
+    {
+        _rend.material.SetFloat("_Highlighted", state ? 1f : 0f);
     }
 }

@@ -9,6 +9,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
     PlayerController _player;
     bool _isPickup;
 
+    Renderer _rend;
     Rigidbody _rb;
     Collider _coll;
 
@@ -16,7 +17,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
     {
         _rb = GetComponent<Rigidbody>();
         _coll = GetComponent<Collider>();
-
+        _rend = GetComponentInChildren<Renderer>();
     }
 
     void Start()
@@ -92,6 +93,11 @@ public class PickupBase : MonoBehaviour, IInteractuable
             _rb.isKinematic = true;
             _coll.isTrigger = true;
         }
+    }
+
+    public void ActivateHighlight(bool state)
+    {
+        _rend.material.SetFloat("_Highlighted", state ? 1f : 0f);
     }
 
 }

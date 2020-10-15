@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IInteractuable
 {
     void Interact();
+    void ActivateHighlight(bool state);
 }

@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     public PickupBase itemPickup;
     public PlayerHand hand;
 
+    IInteractuable _pointedInteractuable;
+
     Keyboard _keyboard;
     Gamepad _gamepad;
     Mouse _mouse;
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
     Tuple<float, float> _directionVectors = new Tuple<float, float>(0, 0);
 
     Rigidbody _rb;
+    RaycastHit _rch;
     #endregion
 
     void Awake()
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour
 
         MovementInput();
         MouseLook();
+        ScanForInteractuables();
         CheckInteract();
         CheckMouseInput();
     }
@@ -118,23 +122,35 @@ public class PlayerController : MonoBehaviour
 
     void ScanForInteractuables()
     {
-        RaycastHit rch;
         var mask = LayerMask.GetMask("Interactuable");
-        var hits = Physics.Raycast(cam.transform.position, cam.transform.forward, out rch, 4, mask);
+        var hits = Physics.Raycast(cam.transform.position, cam.transform.forward, out _rch, 4, mask);
         if (hits)
         {
-            print(rch.transform.name);
-
-            if (rch.collider.GetComponent(typeof(IInteractuable)) is IInteractuable interact)
+            if (_rch.collider.GetComponent(typeof(IInteractuable)) is IInteractuable interact)
             {
-                //save interactuable in variable
-                //make interactuable glow
+                if (_pointedInteractuable != interact)
+                {
+                    if (_pointedInteractuable != null) _pointedInteractuable.ActivateHighlight(false);
+                    _pointedInteractuable = interact;
+                    _pointedInteractuable.ActivateHighlight(true);
+                }
+            }
+            else
+            {
+                if (_pointedInteractuable != null)
+                {
+                    _pointedInteractuable.ActivateHighlight(false);
+                    _pointedInteractuable = null;
+                }
             }
         }
         else
         {
-            //interactuable glow off
-            //interactuable variable is null
+            if (_pointedInteractuable != null)
+            {
+                _pointedInteractuable.ActivateHighlight(false);
+                _pointedInteractuable = null;
+            }
         }
     }
 
@@ -148,9 +164,16 @@ public class PlayerController : MonoBehaviour
                 _hasItem = false;
                 itemPickup = null;
             }
-            else
+            else if (_pointedInteractuable != null)
             {
-                RaycastHit rch;
+                var pickup = _pointedInteractuable as PickupBase;
+                if (pickup)
+                {
+                    _hasItem = true;
+                    itemPickup = pickup;
+                }
+                _pointedInteractuable.Interact();
+                /*RaycastHit rch;
                 var mask = LayerMask.GetMask("Interactuable");
                 var hits = Physics.Raycast(cam.transform.position, cam.transform.forward, out rch, 4, mask);
                 if (hits)
@@ -165,7 +188,7 @@ public class PlayerController : MonoBehaviour
                         _hasItem = true;
                         itemPickup = pickup;
                     }
-                }
+                }*/
             }
         }
     }
