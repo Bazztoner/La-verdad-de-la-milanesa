@@ -60,6 +60,20 @@ public class PickupBase : MonoBehaviour, IInteractuable
         ChangePhysicsState(true);
     }
 
+    public void Deposit(Transform depositPlace)
+    {
+        transform.parent = depositPlace;
+        transform.localPosition = Vector3.zero;
+        _isPickup = false;
+    }
+
+    public void GiveToPlayer()
+    {
+        _isPickup = true;
+        ChangePhysicsState(false);
+        transform.parent = playerHand;
+    }
+
     void ChangePhysicsState(bool physicsOn)
     {
         if (physicsOn)

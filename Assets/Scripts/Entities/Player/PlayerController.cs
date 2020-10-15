@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     bool _lockedByGame;
     bool _hasItem;
 
-    PickupBase _itemPickup;
+    public PickupBase itemPickup;
     public PlayerHand hand;
 
     Keyboard _keyboard;
@@ -103,16 +103,38 @@ public class PlayerController : MonoBehaviour
         {
             if (_mouse.leftButton.wasPressedThisFrame)
             {
-                _itemPickup.Throw(8f);
+                itemPickup.Throw(8f);
                 _hasItem = false;
-                _itemPickup = null;
+                itemPickup = null;
             }
-            else if(_mouse.rightButton.wasPressedThisFrame)
+            else if (_mouse.rightButton.wasPressedThisFrame)
             {
-                _itemPickup.Drop();
+                itemPickup.Drop();
                 _hasItem = false;
-                _itemPickup = null;
+                itemPickup = null;
             }
+        }
+    }
+
+    void ScanForInteractuables()
+    {
+        RaycastHit rch;
+        var mask = LayerMask.GetMask("Interactuable");
+        var hits = Physics.Raycast(cam.transform.position, cam.transform.forward, out rch, 4, mask);
+        if (hits)
+        {
+            print(rch.transform.name);
+
+            if (rch.collider.GetComponent(typeof(IInteractuable)) is IInteractuable interact)
+            {
+                //save interactuable in variable
+                //make interactuable glow
+            }
+        }
+        else
+        {
+            //interactuable glow off
+            //interactuable variable is null
         }
     }
 
@@ -122,9 +144,9 @@ public class PlayerController : MonoBehaviour
         {
             if (_hasItem)
             {
-                _itemPickup.Drop();
+                itemPickup.Drop();
                 _hasItem = false;
-                _itemPickup = null;
+                itemPickup = null;
             }
             else
             {
@@ -141,10 +163,31 @@ public class PlayerController : MonoBehaviour
                     if (pickup)
                     {
                         _hasItem = true;
-                        _itemPickup = pickup;
+                        itemPickup = pickup;
                     }
                 }
             }
         }
     }
+
+    public void SetOnMinigame(bool minigame)
+    {
+        Cursor.lockState = minigame ? CursorLockMode.Confined : CursorLockMode.Locked;
+        Cursor.visible = minigame;
+        _lockedByGame = minigame;
+    }
+
+    public void ForceTakeObject(PickupBase pickup)
+    {
+        _hasItem = true;
+        itemPickup = pickup;
+    }
+
+    public void ForceDepositObject(Transform giveTo)
+    {
+        itemPickup.Deposit(giveTo);
+        _hasItem = false;
+        itemPickup = null;
+    }
+
 }
