@@ -9,6 +9,8 @@ public class MilanesaMinigame : MonoBehaviour
     MilanesaStation _station;
     public TextMeshProUGUI sideText, progressText;
 
+    public bool endingSequence;
+
     void Awake()
     {
         sideText = transform.Find("SideText").GetComponent<TextMeshProUGUI>();
@@ -17,6 +19,7 @@ public class MilanesaMinigame : MonoBehaviour
 
     public void Init(MilanesaStation station)
     {
+        endingSequence = false;
         _station = station;
         sideText.text = "Lado " + (_station.currentMilanga.currentSide ? "A" : "B");
         progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideClicks() + "/" + _station.currentMilanga.clicksNeededBySide;
@@ -24,6 +27,8 @@ public class MilanesaMinigame : MonoBehaviour
 
     public void OnClickMilanesa()
     {
+        if (endingSequence) return;
+
         _station.OnClickMilanesa();
         if (_station.inMinigame)
         {
@@ -34,6 +39,8 @@ public class MilanesaMinigame : MonoBehaviour
 
     public void OnClickTurnOver()
     {
+        if (endingSequence) return;
+
         _station.OnClickTurnOver();
         if (_station.inMinigame)
         {
@@ -44,6 +51,21 @@ public class MilanesaMinigame : MonoBehaviour
 
     public void EndMinigame()
     {
+        StartCoroutine(EndMinigameDelay(2f));
+    }
+
+    IEnumerator EndMinigameDelay(float t)
+    {
+        endingSequence = true;
+
+        yield return new WaitForEndOfFrame();
+
+        sideText.text = " ";
+        progressText.text = "Complete!";
+
+        yield return new WaitForSeconds(t);
+
         _station.EndMinigame();
+        endingSequence = false;
     }
 }

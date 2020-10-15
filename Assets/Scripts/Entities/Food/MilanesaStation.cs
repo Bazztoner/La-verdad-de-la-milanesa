@@ -52,7 +52,7 @@ public class MilanesaStation : FoodStationBase, IInteractuable
     public void OnClickMilanesa()
     {
         currentMilanga.OnClickMilanesa();
-        if (currentMilanga.IsCooked()) EndMinigame();
+        if (currentMilanga.IsCooked()) minigame.EndMinigame();
     }
 
     public void OnClickTurnOver()
@@ -77,8 +77,8 @@ public class MilanesaStation : FoodStationBase, IInteractuable
             currentMilanga = null;
         }
 
+        minigame.gameObject.SetActive(false);
         inMinigame = false;
         _player.SetOnMinigame(false);
-        minigame.gameObject.SetActive(false);
     }
 }
