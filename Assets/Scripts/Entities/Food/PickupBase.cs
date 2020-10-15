@@ -42,6 +42,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
             _isPickup = true;
             ChangePhysicsState(false);
             transform.parent = playerHand;
+            gameObject.layer = LayerMask.NameToLayer("Default");
         }
     }
 
@@ -58,6 +59,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
         transform.parent = null;
         _isPickup = false;
         ChangePhysicsState(true);
+        gameObject.layer = LayerMask.NameToLayer("Interactuable");
     }
 
     public void Deposit(Transform depositPlace)
@@ -65,6 +67,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
         transform.parent = depositPlace;
         transform.localPosition = Vector3.zero;
         _isPickup = false;
+        gameObject.layer = LayerMask.NameToLayer("Interactuable");
     }
 
     public void GiveToPlayer()
@@ -72,6 +75,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
         _isPickup = true;
         ChangePhysicsState(false);
         transform.parent = playerHand;
+        gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
     void ChangePhysicsState(bool physicsOn)
