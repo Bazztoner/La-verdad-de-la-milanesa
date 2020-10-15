@@ -56,7 +56,7 @@ public class MilanesaMinigame : MonoBehaviour
 
     public void CompleteMinigame()
     {
-        StartCoroutine(EndMinigameDelay(2f));
+        StartCoroutine(EndMinigameDelay(1f));
     }
 
     IEnumerator EndMinigameDelay(float t)

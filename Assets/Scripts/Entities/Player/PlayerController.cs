@@ -187,6 +187,7 @@ public class PlayerController : MonoBehaviour
                 {
                     _hasItem = true;
                     itemPickup = pickup;
+                    pickup.SendStateToParent();
                 }
                 _pointedInteractuable.Interact();
             }

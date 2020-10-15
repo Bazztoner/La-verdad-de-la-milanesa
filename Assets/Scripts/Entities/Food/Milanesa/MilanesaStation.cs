@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System.Diagnostics;
 
 public class MilanesaStation : FoodStationBase, IInteractuable
 {
@@ -49,10 +50,31 @@ public class MilanesaStation : FoodStationBase, IInteractuable
         }
     }
 
+    public override void FoodGotPulled()
+    {
+        //do we consume a charge of pan rallado when pulling the milanga, even if it's not completed?
+        CurrentCharges--;
+        currentMilanga = null;
+    }
+
+    public void FillTrayWithPanRallado()
+    {
+        CurrentCharges = maxBreadCharges;
+    }
+
+    /// <summary>
+    /// DO NOT USE YET!!
+    /// </summary>
+    /// <param name="chargesToAdd"></param>
+    public void FillTrayWithPanRallado(int chargesToAdd)
+    {
+        //TODO make pan rallado give X charges and that be needed to interact like them ilanesa
+    }
+
     public void OnClickMilanesa()
     {
         currentMilanga.OnClickMilanesa();
-        if (currentMilanga.IsCooked()) minigame.CompleteMinigame();
+        if (currentMilanga.IsEmpanated()) minigame.CompleteMinigame();
     }
 
     public void OnClickTurnOver()
@@ -70,7 +92,7 @@ public class MilanesaStation : FoodStationBase, IInteractuable
 
     public void EndMinigame()
     {
-        if (currentMilanga.IsCooked())
+        if (currentMilanga.IsEmpanated())
         {
             _player.ForceTakeObject(currentMilanga);
 

@@ -15,6 +15,7 @@ public abstract class FoodStationBase : MonoBehaviour, IInteractuable
     }
 
     public abstract void Interact();
+    public abstract void FoodGotPulled();
 
     public virtual void ActivateHighlight(bool state)
     {

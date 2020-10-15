@@ -47,6 +47,15 @@ public class PickupBase : MonoBehaviour, IInteractuable
         }
     }
 
+    public void SendStateToParent()
+    {
+        if (transform.parent!=null)
+        {
+            var stationParent = transform.parent.GetComponentInParent<FoodStationBase>();
+            if(stationParent) stationParent.FoodGotPulled();
+        }
+    }
+
     public void Throw(float force)
     {
         transform.parent = null;

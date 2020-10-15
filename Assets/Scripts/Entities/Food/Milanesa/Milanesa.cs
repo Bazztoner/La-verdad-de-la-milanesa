@@ -35,7 +35,7 @@ public class Milanesa : PickupBase
         else SideBClicks++;
     }
 
-    public bool IsCooked()
+    public bool IsEmpanated()
     {
         return SideAClicks >= clicksNeededBySide && SideBClicks >= clicksNeededBySide;
     }
