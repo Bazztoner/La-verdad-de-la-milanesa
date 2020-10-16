@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using TMPro;
+using UnityEngine.UI;
 
 public class MilanesaMinigame : MonoBehaviour
 {
     MilanesaStation _station;
     public TextMeshProUGUI sideText, progressText;
+
+    public Image milangaImage;
 
     public bool endingSequence;
 
@@ -15,6 +18,7 @@ public class MilanesaMinigame : MonoBehaviour
     {
         sideText = transform.Find("SideText").GetComponent<TextMeshProUGUI>();
         progressText = transform.Find("ProgressText").GetComponent<TextMeshProUGUI>();
+        milangaImage = transform.Find("Milanesa").GetComponent<Image>();
     }
 
     public void Init(MilanesaStation station)
@@ -23,6 +27,7 @@ public class MilanesaMinigame : MonoBehaviour
         _station = station;
         sideText.text = "Lado " + (_station.currentMilanga.currentSide ? "A" : "B");
         progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideClicks() + "/" + _station.currentMilanga.clicksNeededBySide;
+        milangaImage.fillAmount = (float)_station.currentMilanga.GetCurrentSideClicks() / (float)_station.currentMilanga.clicksNeededBySide;
     }
 
     public void OnClickMilanesa()
@@ -34,6 +39,7 @@ public class MilanesaMinigame : MonoBehaviour
         {
             sideText.text = "Lado " + (_station.currentMilanga.currentSide ? "A" : "B");
             progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideClicks() + "/" + _station.currentMilanga.clicksNeededBySide;
+            milangaImage.fillAmount = (float)_station.currentMilanga.GetCurrentSideClicks() / (float)_station.currentMilanga.clicksNeededBySide;
         }
     }
 
@@ -46,6 +52,7 @@ public class MilanesaMinigame : MonoBehaviour
         {
             sideText.text = "Lado " + (_station.currentMilanga.currentSide ? "A" : "B");
             progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideClicks() + "/" + _station.currentMilanga.clicksNeededBySide;
+            milangaImage.fillAmount = (float)_station.currentMilanga.GetCurrentSideClicks() / (float)_station.currentMilanga.clicksNeededBySide;
         }
     }
 
