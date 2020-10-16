@@ -133,8 +133,8 @@ GameObject:
   - component: {fileID: 30967038}
   - component: {fileID: 30967037}
   - component: {fileID: 30967040}
-  - component: {fileID: 30967039}
   - component: {fileID: 30967041}
+  - component: {fileID: 30967039}
   m_Layer: 9
   m_Name: Papita
   m_TagString: Untagged
@@ -203,8 +203,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30967035}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &30967039
-CapsuleCollider:
+--- !u!65 &30967039
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -213,9 +213,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.50000006
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 0.99999994, z: 1}
   m_Center: {x: 0, y: 0.00000023841858, z: 0}
 --- !u!54 &30967040
 Rigidbody:
@@ -258,8 +257,8 @@ GameObject:
   - component: {fileID: 54087257}
   - component: {fileID: 54087256}
   - component: {fileID: 54087259}
-  - component: {fileID: 54087258}
   - component: {fileID: 54087260}
+  - component: {fileID: 54087258}
   m_Layer: 9
   m_Name: Papita
   m_TagString: Untagged
@@ -328,8 +327,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54087254}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &54087258
-CapsuleCollider:
+--- !u!65 &54087258
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -338,9 +337,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 1}
   m_Center: {x: 0, y: 0.00000023841858, z: 0}
 --- !u!54 &54087259
 Rigidbody:
@@ -383,8 +381,8 @@ GameObject:
   - component: {fileID: 80061146}
   - component: {fileID: 80061145}
   - component: {fileID: 80061148}
-  - component: {fileID: 80061147}
   - component: {fileID: 80061149}
+  - component: {fileID: 80061147}
   m_Layer: 9
   m_Name: Papita (1)
   m_TagString: Untagged
@@ -453,8 +451,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80061143}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &80061147
-CapsuleCollider:
+--- !u!65 &80061147
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -463,9 +461,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.50000006
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 0.99999994, z: 1}
   m_Center: {x: -0.000015258789, y: 0, z: 0}
 --- !u!54 &80061148
 Rigidbody:
@@ -954,8 +951,8 @@ GameObject:
   - component: {fileID: 321354459}
   - component: {fileID: 321354458}
   - component: {fileID: 321354461}
-  - component: {fileID: 321354460}
   - component: {fileID: 321354462}
+  - component: {fileID: 321354460}
   m_Layer: 9
   m_Name: Papita
   m_TagString: Untagged
@@ -1024,8 +1021,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321354456}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &321354460
-CapsuleCollider:
+--- !u!65 &321354460
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1034,9 +1031,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 1}
   m_Center: {x: 0, y: 0.00000023841858, z: 0}
 --- !u!54 &321354461
 Rigidbody:
@@ -1079,8 +1075,8 @@ GameObject:
   - component: {fileID: 328412937}
   - component: {fileID: 328412936}
   - component: {fileID: 328412939}
-  - component: {fileID: 328412938}
   - component: {fileID: 328412940}
+  - component: {fileID: 328412938}
   m_Layer: 9
   m_Name: Papita (4)
   m_TagString: Untagged
@@ -1149,8 +1145,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328412934}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &328412938
-CapsuleCollider:
+--- !u!65 &328412938
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1159,9 +1155,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.50000006
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 0.99999994, z: 1}
   m_Center: {x: -0.000015258789, y: -0.00000023841858, z: 0}
 --- !u!54 &328412939
 Rigidbody:
@@ -1453,8 +1448,8 @@ GameObject:
   - component: {fileID: 397294533}
   - component: {fileID: 397294532}
   - component: {fileID: 397294535}
-  - component: {fileID: 397294534}
   - component: {fileID: 397294536}
+  - component: {fileID: 397294534}
   m_Layer: 9
   m_Name: Panchito
   m_TagString: Untagged
@@ -1523,8 +1518,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397294530}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &397294534
-CapsuleCollider:
+--- !u!65 &397294534
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1533,9 +1528,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.49999997
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 2, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &397294535
 Rigidbody:
@@ -1801,8 +1795,8 @@ GameObject:
   - component: {fileID: 441167847}
   - component: {fileID: 441167846}
   - component: {fileID: 441167849}
-  - component: {fileID: 441167848}
   - component: {fileID: 441167850}
+  - component: {fileID: 441167848}
   m_Layer: 9
   m_Name: Papita (8)
   m_TagString: Untagged
@@ -1871,8 +1865,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441167844}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &441167848
-CapsuleCollider:
+--- !u!65 &441167848
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1881,9 +1875,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 0.99999994, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &441167849
 Rigidbody:
@@ -1926,8 +1919,8 @@ GameObject:
   - component: {fileID: 458067417}
   - component: {fileID: 458067416}
   - component: {fileID: 458067419}
-  - component: {fileID: 458067418}
   - component: {fileID: 458067420}
+  - component: {fileID: 458067418}
   m_Layer: 9
   m_Name: Papita (3)
   m_TagString: Untagged
@@ -1996,8 +1989,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 458067414}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &458067418
-CapsuleCollider:
+--- !u!65 &458067418
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2006,9 +1999,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.50000006
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 0.99999994, z: 1}
   m_Center: {x: -0.000015258789, y: 0.00000023841858, z: 0}
 --- !u!54 &458067419
 Rigidbody:
@@ -2150,8 +2142,8 @@ GameObject:
   - component: {fileID: 619471049}
   - component: {fileID: 619471048}
   - component: {fileID: 619471051}
-  - component: {fileID: 619471050}
   - component: {fileID: 619471052}
+  - component: {fileID: 619471050}
   m_Layer: 9
   m_Name: Milanesa
   m_TagString: Untagged
@@ -2220,8 +2212,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619471046}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &619471050
-CapsuleCollider:
+--- !u!65 &619471050
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2230,9 +2222,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2.0000005
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 2.0000005, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &619471051
 Rigidbody:
@@ -2356,8 +2347,8 @@ GameObject:
   - component: {fileID: 654493538}
   - component: {fileID: 654493537}
   - component: {fileID: 654493540}
-  - component: {fileID: 654493539}
   - component: {fileID: 654493541}
+  - component: {fileID: 654493539}
   m_Layer: 9
   m_Name: Papita (15)
   m_TagString: Untagged
@@ -2426,8 +2417,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 654493535}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &654493539
-CapsuleCollider:
+--- !u!65 &654493539
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2436,9 +2427,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000002
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000004, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &654493540
 Rigidbody:
@@ -2481,8 +2471,8 @@ GameObject:
   - component: {fileID: 673636646}
   - component: {fileID: 673636645}
   - component: {fileID: 673636648}
-  - component: {fileID: 673636647}
   - component: {fileID: 673636649}
+  - component: {fileID: 673636647}
   m_Layer: 9
   m_Name: Papita (18)
   m_TagString: Untagged
@@ -2551,8 +2541,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 673636643}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &673636647
-CapsuleCollider:
+--- !u!65 &673636647
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2561,9 +2551,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000002
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000004, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &673636648
 Rigidbody:
@@ -2698,8 +2687,8 @@ GameObject:
   - component: {fileID: 715389225}
   - component: {fileID: 715389224}
   - component: {fileID: 715389227}
-  - component: {fileID: 715389226}
   - component: {fileID: 715389228}
+  - component: {fileID: 715389226}
   m_Layer: 9
   m_Name: Papita (6)
   m_TagString: Untagged
@@ -2768,8 +2757,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715389222}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &715389226
-CapsuleCollider:
+--- !u!65 &715389226
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2778,9 +2767,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.50000006
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 0.99999994, z: 1}
   m_Center: {x: 0.000015258789, y: 0.00000023841858, z: 0.000015258789}
 --- !u!54 &715389227
 Rigidbody:
@@ -2823,8 +2811,8 @@ GameObject:
   - component: {fileID: 749944700}
   - component: {fileID: 749944699}
   - component: {fileID: 749944702}
-  - component: {fileID: 749944701}
   - component: {fileID: 749944703}
+  - component: {fileID: 749944701}
   m_Layer: 9
   m_Name: Panchito (3)
   m_TagString: Untagged
@@ -2893,8 +2881,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749944697}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &749944701
-CapsuleCollider:
+--- !u!65 &749944701
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2903,9 +2891,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.49999997
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 2, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &749944702
 Rigidbody:
@@ -3067,8 +3054,8 @@ GameObject:
   - component: {fileID: 965184289}
   - component: {fileID: 965184288}
   - component: {fileID: 965184291}
-  - component: {fileID: 965184290}
   - component: {fileID: 965184292}
+  - component: {fileID: 965184290}
   m_Layer: 9
   m_Name: Papita (12)
   m_TagString: Untagged
@@ -3137,8 +3124,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965184286}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &965184290
-CapsuleCollider:
+--- !u!65 &965184290
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3147,9 +3134,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 0.99999994, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &965184291
 Rigidbody:
@@ -3192,8 +3178,8 @@ GameObject:
   - component: {fileID: 981326646}
   - component: {fileID: 981326645}
   - component: {fileID: 981326648}
-  - component: {fileID: 981326647}
   - component: {fileID: 981326649}
+  - component: {fileID: 981326647}
   m_Layer: 9
   m_Name: Papita (16)
   m_TagString: Untagged
@@ -3262,8 +3248,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981326643}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &981326647
-CapsuleCollider:
+--- !u!65 &981326647
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3272,9 +3258,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000002
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000004, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &981326648
 Rigidbody:
@@ -3317,8 +3302,8 @@ GameObject:
   - component: {fileID: 983288049}
   - component: {fileID: 983288048}
   - component: {fileID: 983288051}
-  - component: {fileID: 983288050}
   - component: {fileID: 983288052}
+  - component: {fileID: 983288050}
   m_Layer: 9
   m_Name: Milanesa
   m_TagString: Untagged
@@ -3387,8 +3372,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983288046}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &983288050
-CapsuleCollider:
+--- !u!65 &983288050
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3397,9 +3382,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2.0000005
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 2.0000005, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &983288051
 Rigidbody:
@@ -3444,8 +3428,8 @@ GameObject:
   - component: {fileID: 1052288994}
   - component: {fileID: 1052288993}
   - component: {fileID: 1052288996}
-  - component: {fileID: 1052288995}
   - component: {fileID: 1052288997}
+  - component: {fileID: 1052288995}
   m_Layer: 9
   m_Name: Papita (14)
   m_TagString: Untagged
@@ -3514,8 +3498,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1052288991}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1052288995
-CapsuleCollider:
+--- !u!65 &1052288995
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3524,9 +3508,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000002
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000004, y: 1, z: 1.0000002}
   m_Center: {x: 0.000015258789, y: 0, z: 0}
 --- !u!54 &1052288996
 Rigidbody:
@@ -3725,8 +3708,8 @@ GameObject:
   - component: {fileID: 1083670943}
   - component: {fileID: 1083670942}
   - component: {fileID: 1083670945}
-  - component: {fileID: 1083670944}
   - component: {fileID: 1083670946}
+  - component: {fileID: 1083670944}
   m_Layer: 9
   m_Name: Papita (11)
   m_TagString: Untagged
@@ -3795,8 +3778,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083670940}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1083670944
-CapsuleCollider:
+--- !u!65 &1083670944
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3805,9 +3788,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 0.99999994, z: 1}
   m_Center: {x: 0, y: -0.00000023841858, z: 0}
 --- !u!54 &1083670945
 Rigidbody:
@@ -4607,8 +4589,8 @@ GameObject:
   - component: {fileID: 1225541908}
   - component: {fileID: 1225541907}
   - component: {fileID: 1225541910}
-  - component: {fileID: 1225541909}
   - component: {fileID: 1225541911}
+  - component: {fileID: 1225541909}
   m_Layer: 9
   m_Name: Papita (5)
   m_TagString: Untagged
@@ -4677,8 +4659,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1225541905}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1225541909
-CapsuleCollider:
+--- !u!65 &1225541909
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4687,9 +4669,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.50000006
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 0.99999994, z: 1}
   m_Center: {x: 0.000015258789, y: -0.00000023841858, z: 0}
 --- !u!54 &1225541910
 Rigidbody:
@@ -4862,8 +4843,8 @@ GameObject:
   - component: {fileID: 1253190108}
   - component: {fileID: 1253190107}
   - component: {fileID: 1253190110}
-  - component: {fileID: 1253190109}
   - component: {fileID: 1253190111}
+  - component: {fileID: 1253190109}
   m_Layer: 9
   m_Name: Papita (9)
   m_TagString: Untagged
@@ -4932,8 +4913,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253190105}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1253190109
-CapsuleCollider:
+--- !u!65 &1253190109
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4942,9 +4923,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 0.99999994, z: 1}
   m_Center: {x: 0, y: -0.00000023841858, z: 0}
 --- !u!54 &1253190110
 Rigidbody:
@@ -5081,8 +5061,8 @@ GameObject:
   - component: {fileID: 1319474347}
   - component: {fileID: 1319474346}
   - component: {fileID: 1319474349}
-  - component: {fileID: 1319474348}
   - component: {fileID: 1319474350}
+  - component: {fileID: 1319474348}
   m_Layer: 9
   m_Name: Panchito (4)
   m_TagString: Untagged
@@ -5151,8 +5131,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319474344}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1319474348
-CapsuleCollider:
+--- !u!65 &1319474348
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5161,9 +5141,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.49999997
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 2, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1319474349
 Rigidbody:
@@ -5206,8 +5185,8 @@ GameObject:
   - component: {fileID: 1327613758}
   - component: {fileID: 1327613757}
   - component: {fileID: 1327613760}
-  - component: {fileID: 1327613759}
   - component: {fileID: 1327613761}
+  - component: {fileID: 1327613759}
   m_Layer: 9
   m_Name: Milanesa
   m_TagString: Untagged
@@ -5276,8 +5255,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327613755}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1327613759
-CapsuleCollider:
+--- !u!65 &1327613759
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5286,9 +5265,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2.0000005
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 2.0000005, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1327613760
 Rigidbody:
@@ -5439,8 +5417,8 @@ GameObject:
   - component: {fileID: 1407448113}
   - component: {fileID: 1407448112}
   - component: {fileID: 1407448115}
-  - component: {fileID: 1407448114}
   - component: {fileID: 1407448116}
+  - component: {fileID: 1407448114}
   m_Layer: 9
   m_Name: Papita (2)
   m_TagString: Untagged
@@ -5509,8 +5487,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407448110}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1407448114
-CapsuleCollider:
+--- !u!65 &1407448114
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5519,9 +5497,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.50000006
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 0.99999994, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1407448115
 Rigidbody:
@@ -5780,8 +5757,8 @@ GameObject:
   - component: {fileID: 1441909232}
   - component: {fileID: 1441909231}
   - component: {fileID: 1441909234}
-  - component: {fileID: 1441909233}
   - component: {fileID: 1441909235}
+  - component: {fileID: 1441909233}
   m_Layer: 9
   m_Name: Papita (10)
   m_TagString: Untagged
@@ -5850,8 +5827,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441909229}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1441909233
-CapsuleCollider:
+--- !u!65 &1441909233
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5860,9 +5837,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 0.99999994, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1441909234
 Rigidbody:
@@ -5905,8 +5881,8 @@ GameObject:
   - component: {fileID: 1457492840}
   - component: {fileID: 1457492839}
   - component: {fileID: 1457492842}
-  - component: {fileID: 1457492841}
   - component: {fileID: 1457492843}
+  - component: {fileID: 1457492841}
   m_Layer: 9
   m_Name: Papita
   m_TagString: Untagged
@@ -5975,8 +5951,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457492837}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1457492841
-CapsuleCollider:
+--- !u!65 &1457492841
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5985,9 +5961,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 1}
   m_Center: {x: -0.000030517578, y: 0.00000023841858, z: 0}
 --- !u!54 &1457492842
 Rigidbody:
@@ -6030,8 +6005,8 @@ GameObject:
   - component: {fileID: 1494154910}
   - component: {fileID: 1494154909}
   - component: {fileID: 1494154912}
-  - component: {fileID: 1494154911}
   - component: {fileID: 1494154913}
+  - component: {fileID: 1494154911}
   m_Layer: 9
   m_Name: Papita (7)
   m_TagString: Untagged
@@ -6100,8 +6075,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1494154907}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1494154911
-CapsuleCollider:
+--- !u!65 &1494154911
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6110,9 +6085,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 0.99999994
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 0.99999994, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1494154912
 Rigidbody:
@@ -6500,8 +6474,8 @@ GameObject:
   - component: {fileID: 1590536519}
   - component: {fileID: 1590536518}
   - component: {fileID: 1590536521}
-  - component: {fileID: 1590536520}
   - component: {fileID: 1590536522}
+  - component: {fileID: 1590536520}
   m_Layer: 9
   m_Name: Papita
   m_TagString: Untagged
@@ -6570,8 +6544,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590536516}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1590536520
-CapsuleCollider:
+--- !u!65 &1590536520
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6580,9 +6554,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 1}
   m_Center: {x: -0.000030517578, y: 0.00000023841858, z: 0}
 --- !u!54 &1590536521
 Rigidbody:
@@ -6880,8 +6853,8 @@ GameObject:
   - component: {fileID: 1661565375}
   - component: {fileID: 1661565374}
   - component: {fileID: 1661565377}
-  - component: {fileID: 1661565376}
   - component: {fileID: 1661565378}
+  - component: {fileID: 1661565376}
   m_Layer: 9
   m_Name: Panchito (1)
   m_TagString: Untagged
@@ -6950,8 +6923,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661565372}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1661565376
-CapsuleCollider:
+--- !u!65 &1661565376
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6960,9 +6933,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.49999997
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 2, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1661565377
 Rigidbody:
@@ -7005,8 +6977,8 @@ GameObject:
   - component: {fileID: 1672815502}
   - component: {fileID: 1672815501}
   - component: {fileID: 1672815504}
-  - component: {fileID: 1672815503}
   - component: {fileID: 1672815505}
+  - component: {fileID: 1672815503}
   m_Layer: 9
   m_Name: Papita (17)
   m_TagString: Untagged
@@ -7075,8 +7047,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672815499}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1672815503
-CapsuleCollider:
+--- !u!65 &1672815503
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7085,9 +7057,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000002
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000004, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0.000015258789}
 --- !u!54 &1672815504
 Rigidbody:
@@ -7230,8 +7201,8 @@ GameObject:
   - component: {fileID: 1786088727}
   - component: {fileID: 1786088726}
   - component: {fileID: 1786088729}
-  - component: {fileID: 1786088728}
   - component: {fileID: 1786088730}
+  - component: {fileID: 1786088728}
   m_Layer: 9
   m_Name: Papita (13)
   m_TagString: Untagged
@@ -7300,8 +7271,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786088724}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1786088728
-CapsuleCollider:
+--- !u!65 &1786088728
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7310,9 +7281,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000002
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000004, y: 1, z: 1.0000002}
   m_Center: {x: -0.000015258789, y: 0, z: 0}
 --- !u!54 &1786088729
 Rigidbody:
@@ -7355,8 +7325,8 @@ GameObject:
   - component: {fileID: 1821619671}
   - component: {fileID: 1821619670}
   - component: {fileID: 1821619673}
-  - component: {fileID: 1821619672}
   - component: {fileID: 1821619674}
+  - component: {fileID: 1821619672}
   m_Layer: 9
   m_Name: Papita
   m_TagString: Untagged
@@ -7425,8 +7395,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821619668}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1821619672
-CapsuleCollider:
+--- !u!65 &1821619672
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7435,9 +7405,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 1}
   m_Center: {x: 0, y: 0.00000023841858, z: 0}
 --- !u!54 &1821619673
 Rigidbody:
@@ -7480,8 +7449,8 @@ GameObject:
   - component: {fileID: 1849963096}
   - component: {fileID: 1849963095}
   - component: {fileID: 1849963098}
-  - component: {fileID: 1849963097}
   - component: {fileID: 1849963099}
+  - component: {fileID: 1849963097}
   m_Layer: 9
   m_Name: Milanesa
   m_TagString: Untagged
@@ -7550,8 +7519,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849963093}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1849963097
-CapsuleCollider:
+--- !u!65 &1849963097
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7560,9 +7529,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2.0000005
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 2.0000005, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1849963098
 Rigidbody:
@@ -7607,8 +7575,8 @@ GameObject:
   - component: {fileID: 1892107573}
   - component: {fileID: 1892107572}
   - component: {fileID: 1892107575}
-  - component: {fileID: 1892107574}
   - component: {fileID: 1892107576}
+  - component: {fileID: 1892107574}
   m_Layer: 9
   m_Name: Panchito (2)
   m_TagString: Untagged
@@ -7677,8 +7645,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1892107570}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &1892107574
-CapsuleCollider:
+--- !u!65 &1892107574
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7687,9 +7655,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.49999997
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 2, z: 0.99999994}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1892107575
 Rigidbody:
