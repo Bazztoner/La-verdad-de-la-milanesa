@@ -6,21 +6,21 @@ using System.Linq;
 public class PickupBase : MonoBehaviour, IInteractuable
 {
     public Transform playerHand;
-    PlayerController _player;
+    protected PlayerController _player;
     bool _isPickup;
 
     Renderer _rend;
     Rigidbody _rb;
     Collider _coll;
 
-    void Awake()
+    protected virtual void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _coll = GetComponent<Collider>();
         _rend = GetComponentInChildren<Renderer>();
     }
 
-    void Start()
+    protected virtual void Start()
     {
         _player = FindObjectOfType<PlayerController>();
         playerHand = _player.hand.transform;
@@ -28,7 +28,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
         Physics.IgnoreCollision(_player.GetComponent<Collider>(), _coll);
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (_isPickup)
         {
@@ -52,7 +52,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
         if (transform.parent!=null)
         {
             var stationParent = transform.parent.GetComponentInParent<FoodStationBase>();
-            if(stationParent) stationParent.FoodGotPulled();
+            if(stationParent) stationParent.FoodGotPulled(this);
         }
     }
 

@@ -7,6 +7,24 @@ public class Milanesa : PickupBase
 {
     public int clicksNeededBySide = 3;
 
+    ///REMEMBER TO FUCKING MAKE A FOODBASE ITEM TO ADD THE COSO OF COCINADO
+    public float cookingTime;
+
+    /// <summary>
+    /// No seas tan obvio conque le estás robando al overcooked boludo
+    /// </summary>
+    public float overcookingTime;
+
+    float _currentCookingTime;
+
+    public SpriteRenderer[] stateIcons;
+
+    enum StateSprites
+    {
+        CookWarning,
+        Overcooked
+    }
+
     /// <summary>
     /// true A, false B
     /// </summary>
@@ -29,6 +47,28 @@ public class Milanesa : PickupBase
         }
     }
 
+    protected override void Start()
+    {
+        base.Start();
+
+        stateIcons = new SpriteRenderer[2];
+
+        stateIcons[(int)StateSprites.CookWarning] = transform.Find("ExclamationMark").GetComponent<SpriteRenderer>();
+        stateIcons[(int)StateSprites.Overcooked] = transform.Find("FireIcon").GetComponent<SpriteRenderer>();
+        
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        //I CAN'T MAKE a fucking billboard for fuck's sake
+        /*foreach (var item in stateIcons)
+        {
+            item.transform.rotation = _player.cam.transform.rotation;
+        }*/
+    }
+
     public void OnClickMilanesa()
     {
         if (currentSide) SideAClicks++;
@@ -38,6 +78,16 @@ public class Milanesa : PickupBase
     public bool IsEmpanated()
     {
         return SideAClicks >= clicksNeededBySide && SideBClicks >= clicksNeededBySide;
+    }
+
+    public bool IsCooked()
+    {
+        return _currentCookingTime > cookingTime && !IsOvercooked();
+    }
+
+    public bool IsOvercooked()
+    {
+        return _currentCookingTime >= overcookingTime;
     }
 
     public int GetCurrentSideClicks()
@@ -50,5 +100,27 @@ public class Milanesa : PickupBase
         currentSide = !currentSide;
     }
 
+    /// <summary>
+    /// Add a Time.deltaTime or something like that please
+    /// </summary>
+    /// <param name="t"></param>
+    public void AddCookingTime(float t)
+    {
+        _currentCookingTime += t;
+        ManageCookingTime();
+    }
 
+    void ManageCookingTime()
+    {
+        if (IsCooked())
+        {
+            stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(true);
+            stateIcons[(int)StateSprites.Overcooked].gameObject.SetActive(false);
+        }
+        else if(IsOvercooked())
+        {
+            stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(false);
+            stateIcons[(int)StateSprites.Overcooked].gameObject.SetActive(true);
+        }
+    }
 }

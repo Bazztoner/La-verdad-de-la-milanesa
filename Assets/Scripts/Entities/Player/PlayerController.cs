@@ -55,8 +55,6 @@ public class PlayerController : MonoBehaviour
         ScanForInteractuables();
         CheckInteract();
         CheckMouseInput();
-
-        if (_keyboard.qKey.wasPressedThisFrame) print(_pointedInteractuable);
     }
 
     void FixedUpdate()

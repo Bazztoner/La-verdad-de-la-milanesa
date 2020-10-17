@@ -60,7 +60,7 @@ public class MilanesaStation : FoodStationBase, IInteractuable
         }
     }
 
-    public override void FoodGotPulled()
+    public override void FoodGotPulled(PickupBase food)
     {
         //do we consume a charge of pan rallado when pulling the milanga, even if it's not completed?
         //CurrentCharges--;
