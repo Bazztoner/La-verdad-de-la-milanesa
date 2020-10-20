@@ -207,9 +207,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6893491220773418783}
-  m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071069}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.70710677}
   m_LocalPosition: {x: -3.777, y: 1.607, z: 6.419}
-  m_LocalScale: {x: 0.023806455, y: 0.393775, z: 0.393775}
+  m_LocalScale: {x: 0.011944175, y: 0.1975648, z: 0.1975648}
   m_Children:
   - {fileID: 1500595013504157153}
   - {fileID: 8172858660798266287}
@@ -295,7 +295,7 @@ MonoBehaviour:
   clicksNeededBySide: 3
   cookingTime: 10
   overcookingTime: 15
-  sprites: []
+  stateIcons: []
   currentSide: 1
 --- !u!65 &6893491220773418779
 BoxCollider:

@@ -11,7 +11,7 @@ public class MilanesaStation : FoodStationBase, IInteractuable
 
     public Transform milanesaPosition;
     public Milanesa currentMilanga;
-    public MilanesaMinigame minigame;
+    public EmpanateMilanesaMinigame minigame;
 
     Animator _an;
 
@@ -30,7 +30,7 @@ public class MilanesaStation : FoodStationBase, IInteractuable
     protected override void Start()
     {
         milanesaPosition = transform.Find("MilanesaPosition");
-        minigame = FindObjectOfType<Canvas>().GetComponentInChildren<MilanesaMinigame>(true);
+        minigame = FindObjectOfType<Canvas>().GetComponentInChildren<EmpanateMilanesaMinigame>(true);
         _an = GetComponentInChildren<Animator>();
         CurrentCharges = maxBreadCharges;
         base.Start();

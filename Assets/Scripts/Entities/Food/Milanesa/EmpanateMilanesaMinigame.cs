@@ -5,7 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine.UI;
 
-public class MilanesaMinigame : MonoBehaviour
+public class EmpanateMilanesaMinigame : MonoBehaviour
 {
     MilanesaStation _station;
     public TextMeshProUGUI sideText, progressText;
