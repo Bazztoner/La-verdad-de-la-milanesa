@@ -46,6 +46,7 @@ public class MilanesaStation : FoodStationBase, IInteractuable
                 if (milanga.IsEmpanated()) return;
 
                 currentMilanga = milanga;
+                milanga.SendFoodStationInfo(this);
                 _player.ForceDepositObject(milanesaPosition);
             }
         }
@@ -64,6 +65,9 @@ public class MilanesaStation : FoodStationBase, IInteractuable
     {
         //do we consume a charge of pan rallado when pulling the milanga, even if it's not completed?
         //CurrentCharges--;
+        var milanesa = food as Milanesa;
+        print("mila " + milanesa);
+        if (milanesa != null) milanesa.PulledFromCooking();
         currentMilanga = null;
     }
 

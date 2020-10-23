@@ -19,6 +19,8 @@ public class Milanesa : PickupBase
 
     public SpriteRenderer[] stateIcons;
 
+    FoodStationBase _stationParent;
+
     enum StateSprites
     {
         CookWarning,
@@ -35,7 +37,7 @@ public class Milanesa : PickupBase
     public int SideAClicks
     {
         get => _sideAClicks;
-        private set =>  _sideAClicks = Mathf.Clamp(value, 0, clicksNeededBySide);
+        private set => _sideAClicks = Mathf.Clamp(value, 0, clicksNeededBySide);
     }
 
     public int SideBClicks
@@ -55,7 +57,7 @@ public class Milanesa : PickupBase
 
         stateIcons[(int)StateSprites.CookWarning] = transform.Find("ExclamationMark").GetComponent<SpriteRenderer>();
         stateIcons[(int)StateSprites.Overcooked] = transform.Find("FireIcon").GetComponent<SpriteRenderer>();
-        
+
     }
 
     protected override void Update()
@@ -100,6 +102,21 @@ public class Milanesa : PickupBase
         currentSide = !currentSide;
     }
 
+    public override void SendStateToParent()
+    {
+        if (_stationParent != null) _stationParent.FoodGotPulled(this);
+    }
+
+    public override void SendFoodStationInfo(FoodStationBase station)
+    {
+        _stationParent = station;
+    }
+
+    public void PulledFromCooking()
+    {
+        stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(false);
+    }
+
     /// <summary>
     /// Add a Time.deltaTime or something like that please
     /// </summary>
@@ -117,7 +134,7 @@ public class Milanesa : PickupBase
             stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(true);
             stateIcons[(int)StateSprites.Overcooked].gameObject.SetActive(false);
         }
-        else if(IsOvercooked())
+        else if (IsOvercooked())
         {
             stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(false);
             stateIcons[(int)StateSprites.Overcooked].gameObject.SetActive(true);

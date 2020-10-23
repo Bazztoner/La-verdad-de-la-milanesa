@@ -5,13 +5,13 @@ using System.Linq;
 
 public class CutVeggiesMilanesaMinigame : MonoBehaviour
 {
-	void Start ()
-	{
-		
-	}
-	
-	void Update ()
-	{
-		
-	}
+    void Start()
+    {
+
+    }
+
+    void Update()
+    {
+
+    }
 }

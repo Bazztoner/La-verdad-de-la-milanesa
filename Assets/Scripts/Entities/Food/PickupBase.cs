@@ -47,13 +47,9 @@ public class PickupBase : MonoBehaviour, IInteractuable
         }
     }
 
-    public void SendStateToParent()
+    public virtual void SendStateToParent()
     {
-        if (transform.parent!=null)
-        {
-            var stationParent = transform.parent.GetComponentInParent<FoodStationBase>();
-            if(stationParent) stationParent.FoodGotPulled(this);
-        }
+
     }
 
     public void Throw(float force)
@@ -78,6 +74,11 @@ public class PickupBase : MonoBehaviour, IInteractuable
         transform.localPosition = Vector3.zero;
         _isPickup = false;
         gameObject.layer = LayerMask.NameToLayer("Interactuable");
+    }
+
+    public virtual void SendFoodStationInfo(FoodStationBase station)
+    {
+
     }
 
     public void GiveToPlayer()

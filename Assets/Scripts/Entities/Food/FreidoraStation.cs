@@ -74,6 +74,7 @@ public class FreidoraStation : FoodStationBase
                 var milanga = _player.itemPickup as Milanesa;
                 if (!milanga.IsEmpanated() || milanga.IsCooked() || milanga.IsOvercooked()) return;
 
+                milanga.SendFoodStationInfo(this);
                 var milangaPos = AddMilanga(milanga);
 
                 _player.ForceDepositObject(milangaPos);
@@ -85,6 +86,8 @@ public class FreidoraStation : FoodStationBase
     {
         var mila = food as Milanesa;
         if (mila == null) return;
+
+        mila.PulledFromCooking();
 
         for (int i = 0; i < milanesas.Length; i++)
         {
