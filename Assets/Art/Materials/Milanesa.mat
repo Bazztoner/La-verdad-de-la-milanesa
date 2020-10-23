@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Milanesa
-  m_Shader: {fileID: 4800000, guid: 6da9ecc3f1b08a248b32ac9adbc3ab2e, type: 3}
+  m_Shader: {fileID: 4800000, guid: c40d3bfb23e3a974195d6fca19c411e2, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -81,8 +81,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Power: 1
-    - _Scale: 1
+    - _Power: 1.05
+    - _Scale: 1.67
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -92,7 +92,7 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
-    - _AlbedoColor: {r: 1, g: 0.83, b: 0.057, a: 1}
+    - _AlbedoColor: {r: 0.5566038, g: 0.372101, b: 0.04463333, a: 1}
     - _Color: {r: 0.9245283, g: 0.6322158, b: 0.24857599, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HighlightCilor: {r: 1, g: 0.7971634, b: 0, a: 1}
