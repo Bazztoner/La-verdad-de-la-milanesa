@@ -1,5 +1,161 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &780361512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 780361513}
+  - component: {fileID: 780361515}
+  - component: {fileID: 780361514}
+  m_Layer: 5
+  m_Name: ProgressText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &780361513
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780361512}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5069586027070874833}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 154.84}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &780361515
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780361512}
+  m_CullTransparentMesh: 0
+--- !u!114 &780361514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780361512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: ' '
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_outlineColor:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_textAlignment: 257
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_firstOverflowCharacterIndex: -1
+  m_linkedTextComponent: {fileID: 0}
+  m_isLinkedTextComponent: 0
+  m_isTextTruncated: 0
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_ignoreRectMaskCulling: 0
+  m_ignoreCulling: 1
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_VertexBufferAutoSizeReduction: 1
+  m_firstVisibleCharacter: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_textInfo:
+    textComponent: {fileID: 780361514}
+    characterCount: 1
+    spriteCount: 0
+    spaceCount: 1
+    wordCount: 1
+    linkCount: 0
+    lineCount: 1
+    pageCount: 1
+    materialCount: 1
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_spriteAnimator: {fileID: 0}
+  m_hasFontAssetChanged: 0
+  m_subTextObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &444903634327055770
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +502,7 @@ GameObject:
   - component: {fileID: 444903635104804565}
   - component: {fileID: 444903635104804567}
   - component: {fileID: 444903635104804566}
+  - component: {fileID: 695018434}
   m_Layer: 5
   m_Name: Perej
   m_TagString: Untagged
@@ -411,6 +568,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &695018434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444903635104804564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f2db80a83f15b4abe4d4ccf7f08d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSprite: {fileID: 0}
+  choppedSprite: {fileID: 0}
+  cutHitbox: {fileID: 0}
+  chopped: 0
+  minigameParent: {fileID: 0}
 --- !u!1 &444903635313702766
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +596,7 @@ GameObject:
   - component: {fileID: 444903635313702767}
   - component: {fileID: 444903635313702761}
   - component: {fileID: 444903635313702760}
+  - component: {fileID: 891594192}
   m_Layer: 5
   m_Name: Perej
   m_TagString: Untagged
@@ -487,6 +662,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &891594192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444903635313702766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f2db80a83f15b4abe4d4ccf7f08d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSprite: {fileID: 444903635313702760}
+  choppedSprite: {fileID: 444903636076790013}
+  cutHitbox: {fileID: 444903634681595133}
+  chopped: 0
+  minigameParent: {fileID: 0}
 --- !u!1 &444903635410472676
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +690,7 @@ GameObject:
   - component: {fileID: 444903635410472677}
   - component: {fileID: 444903635410472679}
   - component: {fileID: 444903635410472678}
+  - component: {fileID: 7024103}
   m_Layer: 5
   m_Name: Perej
   m_TagString: Untagged
@@ -563,6 +756,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7024103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444903635410472676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f2db80a83f15b4abe4d4ccf7f08d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSprite: {fileID: 0}
+  choppedSprite: {fileID: 0}
+  cutHitbox: {fileID: 0}
+  chopped: 0
+  minigameParent: {fileID: 0}
 --- !u!1 &444903635710089573
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,6 +970,7 @@ GameObject:
   - component: {fileID: 444903635979212478}
   - component: {fileID: 444903635979212472}
   - component: {fileID: 444903635979212479}
+  - component: {fileID: 640940795}
   m_Layer: 5
   m_Name: Perej
   m_TagString: Untagged
@@ -825,6 +1036,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &640940795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444903635979212477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f2db80a83f15b4abe4d4ccf7f08d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSprite: {fileID: 0}
+  choppedSprite: {fileID: 0}
+  cutHitbox: {fileID: 0}
+  chopped: 0
+  minigameParent: {fileID: 0}
 --- !u!1 &444903636076790003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,6 +1286,7 @@ GameObject:
   - component: {fileID: 9001017269353222733}
   - component: {fileID: 1565520717478352803}
   - component: {fileID: 7045127038937321784}
+  - component: {fileID: 612012441}
   m_Layer: 5
   m_Name: Grande
   m_TagString: Untagged
@@ -1123,6 +1352,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &612012441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813285828029705067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f2db80a83f15b4abe4d4ccf7f08d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSprite: {fileID: 0}
+  choppedSprite: {fileID: 0}
+  cutHitbox: {fileID: 0}
+  chopped: 0
+  minigameParent: {fileID: 0}
 --- !u!1 &2752992843438684616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,6 +1907,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5069586027070874833}
+  - component: {fileID: 701317913}
   m_Layer: 5
   m_Name: CutVeggiesMinigame
   m_TagString: Untagged
@@ -1684,6 +1931,7 @@ RectTransform:
   - {fileID: 444903634327055771}
   - {fileID: 444903635796341647}
   - {fileID: 3736594400887236013}
+  - {fileID: 780361513}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1692,6 +1940,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &701317913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5069586027070874846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd76c7555d74db44caedae69282727d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityToSlash: 5
+  slasherPointer: {fileID: 7813111730075639621}
+  progressText: {fileID: 780361514}
+  endingSequence: 0
 --- !u!1 &5069586028155027054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,6 +2171,7 @@ GameObject:
   - component: {fileID: 544289203326165321}
   - component: {fileID: 5959012427035092562}
   - component: {fileID: 528622484169178771}
+  - component: {fileID: 333637274}
   m_Layer: 5
   m_Name: 'Grande '
   m_TagString: Untagged
@@ -1972,6 +2237,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &333637274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593366331146417061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f2db80a83f15b4abe4d4ccf7f08d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSprite: {fileID: 0}
+  choppedSprite: {fileID: 0}
+  cutHitbox: {fileID: 0}
+  chopped: 0
+  minigameParent: {fileID: 0}
 --- !u!1 &8463664090126557885
 GameObject:
   m_ObjectHideFlags: 0
@@ -2057,6 +2339,7 @@ GameObject:
   - component: {fileID: 3462984857501597504}
   - component: {fileID: 5703945609093408218}
   - component: {fileID: 5698037903348663189}
+  - component: {fileID: 2049132404}
   m_Layer: 5
   m_Name: Grande
   m_TagString: Untagged
@@ -2122,6 +2405,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2049132404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8547159170040198710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f2db80a83f15b4abe4d4ccf7f08d33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSprite: {fileID: 0}
+  choppedSprite: {fileID: 0}
+  cutHitbox: {fileID: 0}
+  chopped: 0
+  minigameParent: {fileID: 0}
 --- !u!1 &8796832398997072723
 GameObject:
   m_ObjectHideFlags: 0

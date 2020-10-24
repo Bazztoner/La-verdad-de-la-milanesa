@@ -2,16 +2,118 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
-public class CutVeggiesMilanesaMinigame : MonoBehaviour
+public class CutVeggiesMinigame : MonoBehaviour
 {
-    void Start()
-    {
+    ChoppingTableStation _station;
 
+    VeggieObject[] _veggies;
+
+    public float velocityToSlash = 5f;
+
+    public TrailRenderer slasherPointer;
+    public TextMeshProUGUI progressText;
+
+    public bool endingSequence;
+
+    #region fuckery for canvas
+    GraphicRaycaster _raycaster;
+    PointerEventData _pointerData;
+    EventSystem _eventSystem;
+    #endregion
+
+    void Awake()
+    {
+        _veggies = GetComponentsInChildren<VeggieObject>();
+
+        //AK ROBANDO!!
+        //Fetch the Raycaster from the GameObject (the Canvas)
+        var canvas = FindObjectOfType<Canvas>();
+        _raycaster = canvas.GetComponent<GraphicRaycaster>();
+        //Fetch the Event System from the Scene
+        _eventSystem = FindObjectOfType<EventSystem>();
+    }
+
+    public void Init(ChoppingTableStation station)
+    {
+        progressText.text = " ";
+        endingSequence = false;
+        _station = station;
+        slasherPointer.emitting = false;
     }
 
     void Update()
     {
+        slasherPointer.transform.position = Mouse.current.position.ReadValue();
 
+        if (Mouse.current.leftButton.IsPressed() && Mouse.current.delta.ReadValue().y >= velocityToSlash)
+        {
+            slasherPointer.emitting = true;
+
+            //Set up the new Pointer Event
+            _pointerData = new PointerEventData(_eventSystem);
+            //Set the Pointer Event Position to that of the mouse position
+            _pointerData.position = Mouse.current.position.ReadValue();
+
+            //Create a list of Raycast Results
+            List<RaycastResult> results = new List<RaycastResult>();
+
+            //Raycast using the Graphics Raycaster and mouse click position
+            _raycaster.Raycast(_pointerData, results);
+
+            //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
+            foreach (RaycastResult result in results)
+            {
+                if (result.gameObject.name == "CutHitbox")
+                {
+                    result.gameObject.GetComponentInParent<VeggieObject>().OnChop();
+                    return;
+                }
+            }
+        }
+        else
+        {
+            slasherPointer.emitting = false;
+        }
     }
+
+    public void OnChop(VeggieObject sender)
+    {
+        if (endingSequence) return;
+
+        _station.OnChop();
+    }
+
+    public void CancelMinigame()
+    {
+        if (!endingSequence) _station.EndMinigame();
+    }
+    public bool EverythingChopped()
+    {
+        return _veggies.All(x => x.chopped);
+    }
+
+    public void CompleteMinigame()
+    {
+        StartCoroutine(EndMinigameDelay(1f));
+    }
+
+    IEnumerator EndMinigameDelay(float t)
+    {
+        endingSequence = true;
+
+        yield return new WaitForEndOfFrame();
+
+        progressText.text = "Complete!";
+
+        yield return new WaitForSeconds(t);
+
+        _station.EndMinigame();
+        endingSequence = false;
+    }
+
 }
