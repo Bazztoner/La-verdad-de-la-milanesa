@@ -25,9 +25,9 @@ public class EmpanateMilanesaMinigame : MonoBehaviour
     {
         endingSequence = false;
         _station = station;
-        sideText.text = "Lado " + (_station.currentMilanga.currentSide ? "A" : "B");
-        progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideClicks() + "/" + _station.currentMilanga.clicksNeededBySide;
-        milangaImage.fillAmount = (float)_station.currentMilanga.GetCurrentSideClicks() / (float)_station.currentMilanga.clicksNeededBySide;
+        sideText.text = "Lado " + (_station.currentMilanga.currentEmpanatingSide ? "A" : "B");
+        progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideEmpanation() + "/" + _station.currentMilanga.clicksNeededBySide;
+        milangaImage.fillAmount = (float)_station.currentMilanga.GetCurrentSideEmpanation() / (float)_station.currentMilanga.clicksNeededBySide;
     }
 
     public void OnClickMilanesa()
@@ -37,9 +37,9 @@ public class EmpanateMilanesaMinigame : MonoBehaviour
         _station.OnClickMilanesa();
         if (_station.inMinigame)
         {
-            sideText.text = "Lado " + (_station.currentMilanga.currentSide ? "A" : "B");
-            progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideClicks() + "/" + _station.currentMilanga.clicksNeededBySide;
-            milangaImage.fillAmount = (float)_station.currentMilanga.GetCurrentSideClicks() / (float)_station.currentMilanga.clicksNeededBySide;
+            sideText.text = "Lado " + (_station.currentMilanga.currentEmpanatingSide ? "A" : "B");
+            progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideEmpanation() + "/" + _station.currentMilanga.clicksNeededBySide;
+            milangaImage.fillAmount = (float)_station.currentMilanga.GetCurrentSideEmpanation() / (float)_station.currentMilanga.clicksNeededBySide;
         }
     }
 
@@ -50,9 +50,9 @@ public class EmpanateMilanesaMinigame : MonoBehaviour
         _station.OnClickTurnOver();
         if (_station.inMinigame)
         {
-            sideText.text = "Lado " + (_station.currentMilanga.currentSide ? "A" : "B");
-            progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideClicks() + "/" + _station.currentMilanga.clicksNeededBySide;
-            milangaImage.fillAmount = (float)_station.currentMilanga.GetCurrentSideClicks() / (float)_station.currentMilanga.clicksNeededBySide;
+            sideText.text = "Lado " + (_station.currentMilanga.currentEmpanatingSide ? "A" : "B");
+            progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideEmpanation() + "/" + _station.currentMilanga.clicksNeededBySide;
+            milangaImage.fillAmount = (float)_station.currentMilanga.GetCurrentSideEmpanation() / (float)_station.currentMilanga.clicksNeededBySide;
         }
     }
 

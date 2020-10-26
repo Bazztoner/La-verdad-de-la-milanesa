@@ -105,7 +105,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
         }
     }
 
-    public void ActivateHighlight(bool state)
+    public virtual void ActivateHighlight(bool state)
     {
         _rend.material.SetFloat("_Highlighted", state ? 1f : 0f);
     }

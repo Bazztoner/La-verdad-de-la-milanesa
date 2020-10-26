@@ -15,7 +15,7 @@ public class CutVeggiesMinigame : MonoBehaviour
 
     public float velocityToSlash = 5f;
 
-    public TrailRenderer slasherPointer;
+    public Image slasherPointer;
     public TextMeshProUGUI progressText;
 
     public bool endingSequence;
@@ -43,17 +43,17 @@ public class CutVeggiesMinigame : MonoBehaviour
         progressText.text = " ";
         endingSequence = false;
         _station = station;
-        slasherPointer.emitting = false;
+        slasherPointer.enabled = false;
     }
 
     void Update()
     {
-        slasherPointer.transform.position = Mouse.current.position.ReadValue();
-
-        if (Mouse.current.leftButton.IsPressed() && Mouse.current.delta.ReadValue().y >= velocityToSlash)
+        slasherPointer.transform.position = Vector3.Lerp(slasherPointer.transform.position, Mouse.current.position.ReadValue(), Time.time);
+        
+        if (Mouse.current.leftButton.IsPressed() && Mathf.Abs(Mouse.current.delta.ReadValue().y) >= velocityToSlash)
         {
-            slasherPointer.emitting = true;
-
+            slasherPointer.enabled = true;
+            
             //Set up the new Pointer Event
             _pointerData = new PointerEventData(_eventSystem);
             //Set the Pointer Event Position to that of the mouse position
@@ -77,7 +77,7 @@ public class CutVeggiesMinigame : MonoBehaviour
         }
         else
         {
-            slasherPointer.emitting = false;
+            slasherPointer.enabled = false;
         }
     }
 

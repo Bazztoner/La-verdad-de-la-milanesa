@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using System.Diagnostics;
 
 public class MilanesaStation : FoodStationBase, IInteractuable
 {
@@ -82,17 +81,18 @@ public class MilanesaStation : FoodStationBase, IInteractuable
     public void FillTrayWithPanRallado(int chargesToAdd)
     {
         //TODO make pan rallado give X charges and that be needed to interact like them ilanesa
+        Debug.LogError("I TOLD YOU NOT TO USE THIS FUCKING FUNCTION QUE CARAJO TE PASA MAN", this.gameObject);
     }
 
     public void OnClickMilanesa()
     {
-        currentMilanga.OnClickMilanesa();
+        currentMilanga.OnClickMilanesaForEmpanating();
         if (currentMilanga.IsEmpanated()) minigame.CompleteMinigame();
     }
 
     public void OnClickTurnOver()
     {
-        currentMilanga.TurnMilanesa();
+        currentMilanga.TurnMilanesaForEmpanating();
     }
 
     void StartMinigame()

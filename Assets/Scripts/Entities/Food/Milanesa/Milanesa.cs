@@ -10,6 +10,8 @@ public class Milanesa : PickupBase
     ///REMEMBER TO FUCKING MAKE A FOODBASE ITEM TO ADD THE COSO OF COCINADO
     public float cookingTime;
 
+    public bool sideAEnhuevated, sideBEnhuevated;
+
     /// <summary>
     /// No seas tan obvio conque le estás robando al overcooked boludo
     /// </summary>
@@ -30,7 +32,12 @@ public class Milanesa : PickupBase
     /// <summary>
     /// true A, false B
     /// </summary>
-    public bool currentSide = true;
+    public bool currentEmpanatingSide = true;
+
+    /// <summary>
+    /// true A, false B
+    /// </summary>
+    public bool currentEnhuevatingSide = true;
 
     int _sideAClicks, _sideBClicks;
 
@@ -71,10 +78,23 @@ public class Milanesa : PickupBase
         }*/
     }
 
-    public void OnClickMilanesa()
+    public void OnTurnMilanesaForEnhuevating()
     {
-        if (currentSide) SideAClicks++;
+        currentEnhuevatingSide = !currentEnhuevatingSide;
+    }
+
+    /// <summary>
+    /// TO DO change function name
+    /// </summary>
+    public void OnClickMilanesaForEmpanating()
+    {
+        if (currentEmpanatingSide) SideAClicks++;
         else SideBClicks++;
+    }
+
+    public bool IsEnhuevated()
+    {
+        return sideAEnhuevated && sideBEnhuevated;
     }
 
     public bool IsEmpanated()
@@ -89,17 +109,17 @@ public class Milanesa : PickupBase
 
     public bool IsOvercooked()
     {
-        return _currentCookingTime >= overcookingTime;
+        return _currentCookingTime > overcookingTime;
     }
 
-    public int GetCurrentSideClicks()
+    public int GetCurrentSideEmpanation()
     {
-        return currentSide ? SideAClicks : SideBClicks;
+        return currentEmpanatingSide ? SideAClicks : SideBClicks;
     }
 
-    public void TurnMilanesa()
+    public void TurnMilanesaForEmpanating()
     {
-        currentSide = !currentSide;
+        currentEmpanatingSide = !currentEmpanatingSide;
     }
 
     public override void SendStateToParent()

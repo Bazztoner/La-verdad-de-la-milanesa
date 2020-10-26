@@ -29,6 +29,8 @@ public class ChoppingTableStation : FoodStationBase
             {
                 var ajoPerejil = _player.itemPickup as AjoPerejil;
 
+                if (ajoPerejil.isChopped) return;
+
                 currentVeggies = ajoPerejil;
                 ajoPerejil.SendFoodStationInfo(this);
                 _player.ForceDepositObject(choppingPosition);
@@ -42,7 +44,6 @@ public class ChoppingTableStation : FoodStationBase
 
     public override void FoodGotPulled(PickupBase food)
     {
-        //var ajoPerejil = food as AjoPerejil;
         currentVeggies = null;
     }
 
@@ -50,6 +51,7 @@ public class ChoppingTableStation : FoodStationBase
     {
         if (minigame.EverythingChopped())
         {
+            currentVeggies.OnChoppedVeggies();
             minigame.CompleteMinigame();
         }
     }
@@ -64,14 +66,7 @@ public class ChoppingTableStation : FoodStationBase
 
     public void EndMinigame()
     {
-        if (minigame.EverythingChopped())
-        {
-            Destroy(currentVeggies);
-        }
-        else
-        {
-            _player.ForceTakeObject(currentVeggies);
-        }
+        _player.ForceTakeObject(currentVeggies);
 
         currentVeggies = null;
         minigame.gameObject.SetActive(false);
