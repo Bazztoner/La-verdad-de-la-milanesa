@@ -42,7 +42,7 @@ public class MilanesaStation : FoodStationBase, IInteractuable
             if (_player.itemPickup is Milanesa)
             {
                 var milanga = _player.itemPickup as Milanesa;
-                if (milanga.IsEmpanated()) return;
+                if (milanga.IsEmpanated() || !milanga.IsEnhuevated()) return;
 
                 currentMilanga = milanga;
                 milanga.SendFoodStationInfo(this);

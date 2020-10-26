@@ -9,7 +9,7 @@ public class BowlStation : FoodStationBase
     public bool hasVeggies;
     public Milanesa currentMilanga;
 
-    public GameObject eggMesh, veggiesMesh;
+    public GameObject normalEggMesh, scrambledEggMesh, veggiesMesh;
 
     public Transform milangaPos;
 
@@ -17,28 +17,30 @@ public class BowlStation : FoodStationBase
 
     public bool scrambledEggs;
 
+    public WhiskEggsMinigame whiskEggsMinigame;
+    public EnhuevateMilanesaMinigame enhuevateMinigame;
+
+    public bool inMinigame;
+
+
+
     protected override void Start()
     {
         _an = GetComponentInChildren<Animator>();
         base.Start();
     }
 
-    void Update()
-    {
-
-    }
-
     public override void Interact()
     {
         if (_player.itemPickup is Milanesa)
         {
-            if (currentMilanga != null || !scrambledEggs) return;
+            if (currentMilanga != null || !scrambledEggs || !hasVeggies) return;
 
             var milanga = _player.itemPickup as Milanesa;
             if (milanga.IsEnhuevated() || milanga.IsEmpanated() || milanga.IsCooked() || milanga.IsOvercooked()) return;
 
+            currentMilanga = milanga;
             milanga.SendFoodStationInfo(this);
-
             _player.ForceDepositObject(milangaPos);
         }
         else if (_player.itemPickup is EggFood)
@@ -51,6 +53,8 @@ public class BowlStation : FoodStationBase
             _player.ForceDepositObject(milangaPos);
 
             buebos.gameObject.SetActive(false);
+
+            normalEggMesh.SetActive(true);
         }
         else if (_player.itemPickup is AjoPerejil)
         {
@@ -70,16 +74,62 @@ public class BowlStation : FoodStationBase
         }
         else if(_player.itemPickup == null)
         {
-            if (!scrambledEggs)
+            if (!scrambledEggs && hasEggs)
             {
-                //scramble eggs minigame
+                StartEggsMinigame();
             }
-            else if(currentMilanga != null)
+            else if(currentMilanga != null && hasVeggies)
             {
-                //enhuevate milaness minigame
+                StartMilanesaMinigame();
             }
 
         }
+    }
+
+    public void OnScrambleEggs()
+    {
+        normalEggMesh.SetActive(false);
+        scrambledEggMesh.SetActive(true);
+        scrambledEggs = true;
+    }
+
+    void StartMilanesaMinigame()
+    {
+        inMinigame = true;
+        _player.SetOnMinigame(true);
+        enhuevateMinigame.gameObject.SetActive(true);
+        enhuevateMinigame.Init(this);
+    }
+
+    public void EndMilanesaMinigame()
+    {
+        if (currentMilanga.IsEnhuevated())
+        {
+            _player.ForceTakeObject(currentMilanga);
+
+            currentMilanga = null;
+        }
+
+        enhuevateMinigame.gameObject.SetActive(false);
+        inMinigame = false;
+        _player.SetOnMinigame(false);
+    }
+
+    void StartEggsMinigame()
+    {
+        inMinigame = true;
+        _player.SetOnMinigame(true);
+        whiskEggsMinigame.gameObject.SetActive(true);
+        whiskEggsMinigame.Init(this);
+    }
+
+    public void EndEggsMinigame()
+    {
+        if (whiskEggsMinigame.MinigameComplete) OnScrambleEggs();
+
+        whiskEggsMinigame.gameObject.SetActive(false);
+        inMinigame = false;
+        _player.SetOnMinigame(false);
     }
 
     public override void FoodGotPulled(PickupBase food)

@@ -10,7 +10,7 @@ public class Milanesa : PickupBase
     ///REMEMBER TO FUCKING MAKE A FOODBASE ITEM TO ADD THE COSO OF COCINADO
     public float cookingTime;
 
-    public bool sideAEnhuevated, sideBEnhuevated;
+    public bool sideAEnhuevated = false, sideBEnhuevated = false;
 
     /// <summary>
     /// No seas tan obvio conque le estás robando al overcooked boludo
