@@ -34,6 +34,9 @@ public class WhiskEggsMinigame : MonoBehaviour
         endingSequence = false;
         _station = station;
         progressText.text = "Keep on!";
+
+        var intTime = Mathf.Lerp(3, 0, _currentWhiskingTime / whiskTime);
+        bowlAn.Play(Mathf.RoundToInt(intTime).ToString());
     }
 
 
@@ -41,15 +44,14 @@ public class WhiskEggsMinigame : MonoBehaviour
     {
         if (endingSequence) return;
 
-        if (Mouse.current.IsPressed() && Mathf.Abs(Mouse.current.delta.ReadValue().x) >= mouseSpeedForWhisking)
+        if (Mouse.current.leftButton.IsPressed() && Mathf.Abs(Mouse.current.delta.ReadValue().x) >= mouseSpeedForWhisking)
         {
             whiskerAn.enabled = true;
 
             _currentWhiskingTime += Time.deltaTime;
 
             var intTime = Mathf.Lerp(3, 0, _currentWhiskingTime / whiskTime);
-
-            bowlAn.SetInteger("eggs", Mathf.RoundToInt(intTime));
+            bowlAn.Play(Mathf.RoundToInt(intTime).ToString());
 
             if (MinigameComplete)
             {
