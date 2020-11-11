@@ -17,7 +17,7 @@ public class OrderDelivery : PickupBase
             foodToDeliver.SendOrderDeliveryInfo(this);
             _player.ForceDepositObject(foodPos);
         }
-        else if (!_isPickup && _player.itemPickup == null)
+        else if (!_isPickup && _player.itemPickup is OrderDelivery) //this fix is so fucking stupid I can't believe my ass/eyes
         {
             _isPickup = true;
             ChangePhysicsState(false);
