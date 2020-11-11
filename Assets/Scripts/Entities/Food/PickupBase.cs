@@ -7,11 +7,11 @@ public class PickupBase : MonoBehaviour, IInteractuable
 {
     public Transform playerHand;
     protected PlayerController _player;
-    bool _isPickup;
+    protected bool _isPickup;
 
-    Renderer _rend;
-    Rigidbody _rb;
-    Collider _coll;
+    protected Renderer _rend;
+    protected Rigidbody _rb;
+    protected Collider _coll;
 
     protected virtual void Awake()
     {
@@ -36,7 +36,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
         }
     }
 
-    public void Interact()
+    public virtual void Interact()
     {
         if (!_isPickup)
         {
@@ -89,7 +89,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
         gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
-    void ChangePhysicsState(bool physicsOn)
+    protected void ChangePhysicsState(bool physicsOn)
     {
         if (physicsOn)
         {

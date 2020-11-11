@@ -23,7 +23,6 @@ public class BowlStation : FoodStationBase
     public bool inMinigame;
 
 
-
     protected override void Start()
     {
         _an = GetComponentInChildren<Animator>();

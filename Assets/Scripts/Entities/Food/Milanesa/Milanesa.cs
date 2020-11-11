@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class Milanesa : PickupBase
+public class Milanesa : FoodBase
 {
     public int clicksNeededBySide = 3;
 
-    ///REMEMBER TO FUCKING MAKE A FOODBASE ITEM TO ADD THE COSO OF COCINADO
     public float cookingTime;
 
     public bool sideAEnhuevated = false, sideBEnhuevated = false;
@@ -20,8 +19,6 @@ public class Milanesa : PickupBase
     float _currentCookingTime;
 
     public SpriteRenderer[] stateIcons;
-
-    FoodStationBase _stationParent;
 
     enum StateSprites
     {
@@ -74,7 +71,7 @@ public class Milanesa : PickupBase
         //I CAN'T MAKE a fucking billboard for fuck's sake
         /*foreach (var item in stateIcons)
         {
-            item.transform.rotation = _player.cam.transform.rotation;
+            item.transform.localRotation = _player.cam.transform.rotation;
         }*/
     }
 
@@ -102,12 +99,12 @@ public class Milanesa : PickupBase
         return SideAClicks >= clicksNeededBySide && SideBClicks >= clicksNeededBySide;
     }
 
-    public bool IsCooked()
+    public override bool IsCooked()
     {
         return _currentCookingTime > cookingTime && !IsOvercooked();
     }
 
-    public bool IsOvercooked()
+    public override bool IsOvercooked()
     {
         return _currentCookingTime > overcookingTime;
     }
@@ -122,17 +119,7 @@ public class Milanesa : PickupBase
         currentEmpanatingSide = !currentEmpanatingSide;
     }
 
-    public override void SendStateToParent()
-    {
-        if (_stationParent != null) _stationParent.FoodGotPulled(this);
-    }
-
-    public override void SendFoodStationInfo(FoodStationBase station)
-    {
-        _stationParent = station;
-    }
-
-    public void PulledFromCooking()
+    public override void PulledFromCooking()
     {
         stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(false);
     }

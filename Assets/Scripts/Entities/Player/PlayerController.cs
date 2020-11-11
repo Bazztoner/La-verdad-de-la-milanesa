@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.InputSystem;
+using UnityEditor;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,6 +45,8 @@ public class PlayerController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        if (EditorApplication.isPlaying) headSensitivity *= 3;
     }
 
     void Update()
@@ -137,7 +140,7 @@ public class PlayerController : MonoBehaviour
                         _pointedInteractuable = interact;
                         _pointedInteractuable.ActivateHighlight(true);
                     }
-                    else if (interact is FoodStationBase)
+                    else if (interact is FoodStationBase || interact is OrderDelivery)
                     {
                         _pointedInteractuable = interact;
                         _pointedInteractuable.ActivateHighlight(true);
