@@ -14,6 +14,8 @@ public class OrderDelivery : PickupBase
         if (_player.itemPickup is FoodBase)
         {
             foodToDeliver = _player.itemPickup as FoodBase;
+            if (!foodToDeliver.IsCooked() || foodToDeliver.IsOvercooked()) return;
+
             foodToDeliver.SendOrderDeliveryInfo(this);
             _player.ForceDepositObject(foodPos);
         }
@@ -30,4 +32,12 @@ public class OrderDelivery : PickupBase
     {
         if (food as FoodBase != null) foodToDeliver = null;
     }
+}
+
+public enum DeliverableFood
+{
+    MilanesaCarne,
+    MilanesaCerdo,
+    MilanesaLentejas,
+    MilanesaBerenjena
 }
