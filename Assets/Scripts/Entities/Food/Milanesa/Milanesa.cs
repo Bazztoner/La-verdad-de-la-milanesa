@@ -20,6 +20,10 @@ public class Milanesa : FoodBase
 
     public SpriteRenderer[] stateIcons;
 
+    public enum MilanesaType { Carne, Pollo, Berenjena, Pescado }
+
+    public MilanesaType typeOfMilanga;
+
     enum StateSprites
     {
         CookWarning,

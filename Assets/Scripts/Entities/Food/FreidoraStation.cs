@@ -41,14 +41,6 @@ public class FreidoraStation : FoodStationBase
         {
             if (tuple.Item2 != null) tuple.Item2.AddCookingTime(Time.deltaTime);
         }
-
-        if (Keyboard.current.qKey.wasPressedThisFrame)
-        {
-            foreach (var item in milanesas)
-            {
-                if (item.Item2 != null) Debug.Log("TENGO " + item.Item2, item.Item2.gameObject);
-            }
-        }
     }
 
     Transform AddMilanga(Milanesa milangaToAdd)

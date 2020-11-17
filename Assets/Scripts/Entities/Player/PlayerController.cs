@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
     public float headSensitivity;
     public float headRotationSpeed;
 
+    [Header("Raycast lenght")]
+    public float interactuableRange = 6f;
+
     bool _lockedByGame;
     bool _hasItem;
 
@@ -58,6 +61,8 @@ public class PlayerController : MonoBehaviour
         ScanForInteractuables();
         CheckInteract();
         CheckMouseInput();
+
+        if (_keyboard.qKey.wasPressedThisFrame) print(_pointedInteractuable);
     }
 
     void FixedUpdate()
@@ -125,8 +130,8 @@ public class PlayerController : MonoBehaviour
 
     void ScanForInteractuables()
     {
-        var mask = LayerMask.GetMask("Interactuable");
-        var hits = Physics.Raycast(cam.transform.position, cam.transform.forward, out _rch, 4, mask);
+        var mask = LayerMask.GetMask("Interactuable", "Customer");
+        var hits = Physics.Raycast(cam.transform.position, cam.transform.forward, out _rch, interactuableRange, mask);
         if (hits)
         {
             if (_rch.collider.GetComponent(typeof(IInteractuable)) is IInteractuable interact)
@@ -140,7 +145,7 @@ public class PlayerController : MonoBehaviour
                         _pointedInteractuable = interact;
                         _pointedInteractuable.ActivateHighlight(true);
                     }
-                    else if (interact is FoodStationBase || interact is OrderDelivery)
+                    else if (interact is FoodStationBase || interact is OrderDelivery || interact is CustomerBase)
                     {
                         _pointedInteractuable = interact;
                         _pointedInteractuable.ActivateHighlight(true);

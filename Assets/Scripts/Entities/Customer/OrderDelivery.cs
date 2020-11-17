@@ -32,12 +32,21 @@ public class OrderDelivery : PickupBase
     {
         if (food as FoodBase != null) foodToDeliver = null;
     }
-}
 
-public enum DeliverableFood
-{
-    MilanesaCarne,
-    MilanesaCerdo,
-    MilanesaLentejas,
-    MilanesaBerenjena
+    public void GetOrder(FoodBase food)
+    {
+        if (food.GetType() == foodToDeliver.GetType())
+        {
+
+        }
+    }
+
+    protected override void ChangePhysicsState(bool physicsOn)
+    {
+        base.ChangePhysicsState(physicsOn);
+
+        //HARDCODEADO HORRIBLE JEJE
+        _coll.enabled = physicsOn;
+        foodToDeliver.GetComponent<Collider>().enabled = physicsOn;
+    }
 }

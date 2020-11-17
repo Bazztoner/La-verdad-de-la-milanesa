@@ -89,7 +89,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
         gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
-    protected void ChangePhysicsState(bool physicsOn)
+    protected virtual void ChangePhysicsState(bool physicsOn)
     {
         if (physicsOn)
         {
