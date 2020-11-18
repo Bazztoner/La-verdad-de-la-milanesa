@@ -129,8 +129,9 @@ MonoBehaviour:
   movementSpeed: 10
   runMultiplier: 2
   cameraRotationClamp: 83
-  headSensitivity: 14
+  headSensitivity: 3.5
   headRotationSpeed: 360
+  interactuableRange: 7
   itemPickup: {fileID: 0}
   hand: {fileID: 0}
   cam: {fileID: 0}
@@ -198,7 +199,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 1591
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

@@ -515,7 +515,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 84
@@ -532,3 +532,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e72c93d2e646394dab60a725b2ccd0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wantedFood: 2

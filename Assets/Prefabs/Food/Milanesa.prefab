@@ -294,9 +294,13 @@ MonoBehaviour:
   playerHand: {fileID: 0}
   clicksNeededBySide: 3
   cookingTime: 10
+  sideAEnhuevated: 0
+  sideBEnhuevated: 0
   overcookingTime: 15
   stateIcons: []
-  currentSide: 1
+  typeOfMilanga: 0
+  currentEmpanatingSide: 1
+  currentEnhuevatingSide: 1
 --- !u!65 &6893491220773418779
 BoxCollider:
   m_ObjectHideFlags: 0
