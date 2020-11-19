@@ -29,6 +29,8 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
     public void GetDelivery(OrderDelivery delivery)
     {
+        if (delivery.foodToDeliver == null) return;
+
         var correctFood = FoodIWant(delivery.foodToDeliver);
 
         _player.ForceDepositObject(transform);

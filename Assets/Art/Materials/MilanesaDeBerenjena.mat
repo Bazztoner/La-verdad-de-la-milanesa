@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Milanesa
+  m_Name: MilanesaDeBerenjena
   m_Shader: {fileID: 4800000, guid: c40d3bfb23e3a974195d6fca19c411e2, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 72baafa299c51f84593b971a033d9a8d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -77,18 +77,18 @@ Material:
     - _Glossiness: 0.34
     - _GlossyReflections: 1
     - _Highlighted: 0
-    - _Metallic: 0
+    - _Metallic: 0.05
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Power: 1.05
     - _Scale: 1.67
-    - _Smoothness: 0
+    - _Smoothness: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _UseTextureAlbedo: 0
+    - _UseTextureAlbedo: 1
     - _ZWrite: 1
     - __dirty: 0
     m_Colors:
