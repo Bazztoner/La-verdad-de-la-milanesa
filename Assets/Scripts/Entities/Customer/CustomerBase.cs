@@ -37,7 +37,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
         delivery.gameObject.SetActive(false);
 
-        var elreturn = correctFood ? "GRACIAS LOCO" : "SOS PELOTUDO TARADO DE MIERDA?";
+        var elreturn = correctFood ? "GRACIAS LOCO!!!" : "NO, YO NO QUERIA ESTO!!";
 
         print(elreturn);
     }
