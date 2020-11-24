@@ -532,4 +532,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e72c93d2e646394dab60a725b2ccd0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wantedFood: 2
+  maxWaitTime: 120
+  orderRecieved: 0
+  wantedFood: 0

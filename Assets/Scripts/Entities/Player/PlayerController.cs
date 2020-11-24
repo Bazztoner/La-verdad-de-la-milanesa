@@ -147,6 +147,8 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (interact is FoodStationBase || interact is OrderDelivery || interact is CustomerBase)
                     {
+                        var customer = interact as CustomerBase;
+                        if (customer != null && customer.orderRecieved) return;
                         _pointedInteractuable = interact;
                         _pointedInteractuable.ActivateHighlight(true);
                     }

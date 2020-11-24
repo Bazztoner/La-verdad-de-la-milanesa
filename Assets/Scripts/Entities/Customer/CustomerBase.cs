@@ -11,6 +11,11 @@ public class CustomerBase : MonoBehaviour, IInteractuable
     protected Rigidbody _rb;
     protected Collider _coll;
 
+    public float maxWaitTime = 37f;
+    float _currentWaitTime = 0;
+
+    public bool orderRecieved;
+
     public DeliverableFood wantedFood;
 
 
@@ -22,14 +27,37 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         _player = FindObjectOfType<PlayerController>();
     }
 
-    void Update()
+    void Start()
     {
+        StartOrder();
+    }
 
+    void StartOrder()
+    {
+        StartCoroutine(OrderTimeHandler());
+    }
+
+    IEnumerator OrderTimeHandler()
+    {
+        print("PADRE, QUIERO " + wantedFood);
+
+        while (_currentWaitTime <= maxWaitTime)
+        {
+            if (orderRecieved) yield break;
+
+            yield return new WaitForEndOfFrame();
+
+            _currentWaitTime += Time.deltaTime;
+        }
+
+        orderRecieved = true;
+
+        print("BUENO, ESPERÉ " + maxWaitTime + " Y NO ME DIERON LA ORDEN, ME TOMO EL PALO");
     }
 
     public void GetDelivery(OrderDelivery delivery)
     {
-        if (delivery.foodToDeliver == null) return;
+        if (delivery.foodToDeliver == null || orderRecieved) return;
 
         var correctFood = FoodIWant(delivery.foodToDeliver);
 
@@ -40,6 +68,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         var elreturn = correctFood ? "GRACIAS LOCO!!!" : "NO, YO NO QUERIA ESTO!!";
 
         print(elreturn);
+        orderRecieved = true;
     }
 
     bool FoodIWant(FoodBase food)
