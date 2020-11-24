@@ -27,12 +27,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         _player = FindObjectOfType<PlayerController>();
     }
 
-    void Start()
-    {
-        StartOrder();
-    }
-
-    void StartOrder()
+    public void StartOrder()
     {
         StartCoroutine(OrderTimeHandler());
     }
