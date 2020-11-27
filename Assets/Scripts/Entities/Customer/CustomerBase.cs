@@ -11,12 +11,13 @@ public class CustomerBase : MonoBehaviour, IInteractuable
     protected Rigidbody _rb;
     protected Collider _coll;
 
-    public float maxWaitTime = 37f;
+    public float maxWaitTime = 37f, emotionIconTime = 4f;
     float _currentWaitTime = 0;
 
     public bool orderRecieved;
 
     public DeliverableFood wantedFood;
+    public SpriteRenderer speechGlobe, foodIcon, happyIcon, angryIcon;
 
 
     void Awake()
@@ -25,6 +26,29 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         _coll = GetComponent<Collider>();
         _rend = GetComponentInChildren<Renderer>();
         _player = FindObjectOfType<PlayerController>();
+        speechGlobe = transform.Find("SpeechGlobe").GetComponent<SpriteRenderer>();
+
+        switch (wantedFood)
+        {
+            case DeliverableFood.MilanesaDeCarne:
+                foodIcon = speechGlobe.transform.Find("Carne").GetComponent<SpriteRenderer>();
+                break;
+            case DeliverableFood.MilanesaDePollo:
+                foodIcon = speechGlobe.transform.Find("Pollo").GetComponent<SpriteRenderer>();
+                break;
+            case DeliverableFood.MilanesaDeBerenjena:
+                foodIcon = speechGlobe.transform.Find("Berenjena").GetComponent<SpriteRenderer>();
+                break;
+            case DeliverableFood.MilanesaDePescado:
+                foodIcon = speechGlobe.transform.Find("Pescado").GetComponent<SpriteRenderer>();
+                break;
+            default:
+                print("Noncontré nada xd");
+                break;
+        }
+
+        angryIcon = speechGlobe.transform.Find("AngryIcon").GetComponent<SpriteRenderer>();
+        happyIcon = speechGlobe.transform.Find("HappyIcon").GetComponent<SpriteRenderer>();
     }
 
     public void StartOrder()
@@ -35,6 +59,9 @@ public class CustomerBase : MonoBehaviour, IInteractuable
     IEnumerator OrderTimeHandler()
     {
         print("PADRE, QUIERO " + wantedFood);
+
+        speechGlobe.gameObject.SetActive(true);
+        foodIcon.gameObject.SetActive(true);
 
         while (_currentWaitTime <= maxWaitTime)
         {
@@ -48,6 +75,22 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         orderRecieved = true;
 
         print("BUENO, ESPERÉ " + maxWaitTime + " Y NO ME DIERON LA ORDEN, ME TOMO EL PALO");
+
+        StartCoroutine(EmotionIconTimer(false));
+    }
+
+    IEnumerator EmotionIconTimer(bool happy)
+    {
+        foodIcon.gameObject.SetActive(false);
+
+        if (happy) happyIcon.gameObject.SetActive(true);
+        else angryIcon.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(emotionIconTime);
+
+        speechGlobe.gameObject.SetActive(false);
+        happyIcon.gameObject.SetActive(false);
+        angryIcon.gameObject.SetActive(false);
     }
 
     public void GetDelivery(OrderDelivery delivery)
@@ -64,6 +107,8 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
         print(elreturn);
         orderRecieved = true;
+
+        StartCoroutine(EmotionIconTimer(correctFood));
     }
 
     bool FoodIWant(FoodBase food)
