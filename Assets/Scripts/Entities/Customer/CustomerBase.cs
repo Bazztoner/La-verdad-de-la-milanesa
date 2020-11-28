@@ -97,6 +97,8 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         speechGlobe.gameObject.SetActive(false);
         happyIcon.gameObject.SetActive(false);
         angryIcon.gameObject.SetActive(false);
+
+
     }
 
     public void GetDelivery(OrderDelivery delivery)
