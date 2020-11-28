@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class CustomerBase : MonoBehaviour, IInteractuable
 {
@@ -18,6 +20,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
     public DeliverableFood wantedFood;
     public SpriteRenderer speechGlobe, foodIcon, happyIcon, angryIcon;
+    public Image orderTimeFeedback;
 
 
     void Awake()
@@ -49,6 +52,8 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
         angryIcon = speechGlobe.transform.Find("AngryIcon").GetComponent<SpriteRenderer>();
         happyIcon = speechGlobe.transform.Find("HappyIcon").GetComponent<SpriteRenderer>();
+
+        orderTimeFeedback = GetComponentsInChildren<Image>(true).Where(x => x.name == "RedFill").First();
     }
 
     public void StartOrder()
@@ -70,6 +75,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
             yield return new WaitForEndOfFrame();
 
             _currentWaitTime += Time.deltaTime;
+            orderTimeFeedback.fillAmount = _currentWaitTime / maxWaitTime;
         }
 
         orderRecieved = true;
