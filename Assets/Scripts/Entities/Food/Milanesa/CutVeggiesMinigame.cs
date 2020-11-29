@@ -32,7 +32,7 @@ public class CutVeggiesMinigame : MonoBehaviour
 
         //AK ROBANDO!!
         //Fetch the Raycaster from the GameObject (the Canvas)
-        var canvas = FindObjectOfType<Canvas>();
+        var canvas = FindObjectsOfType<Canvas>().Where(x => x.name == "MainCanvas").First();
         _raycaster = canvas.GetComponent<GraphicRaycaster>();
         //Fetch the Event System from the Scene
         _eventSystem = FindObjectOfType<EventSystem>();
@@ -68,6 +68,8 @@ public class CutVeggiesMinigame : MonoBehaviour
             //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
             foreach (RaycastResult result in results)
             {
+                Debug.Log(result.gameObject.name, result.gameObject);
+
                 if (result.gameObject.name == "CutHitbox")
                 {
                     result.gameObject.GetComponentInParent<VeggieObject>().OnChop();
