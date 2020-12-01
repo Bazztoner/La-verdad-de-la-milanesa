@@ -8,7 +8,7 @@ public class PanRallado : MonoBehaviour, IInteractuable
     protected PlayerController _player;
     protected Renderer _rend;
     public MilanesaStation station;
-
+    public int moneyCost;
     protected virtual void Start()
     {
         _player = FindObjectOfType<PlayerController>();
@@ -18,7 +18,12 @@ public class PanRallado : MonoBehaviour, IInteractuable
 
     public void Interact()
     {
-        station.FillTrayWithPanRallado();
+        if (GameManager.Instance.HasEnoughMoney(moneyCost))
+        {
+            station.FillTrayWithPanRallado();
+            GameManager.Instance.AddMoneyValue(-moneyCost);
+        }
+        else print("NO HAY PLATA!");
     }
 
     public virtual void ActivateHighlight(bool state)

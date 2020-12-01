@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   station: {fileID: 0}
+  moneyCost: 5
 --- !u!1 &7325450101378658740
 GameObject:
   m_ObjectHideFlags: 0

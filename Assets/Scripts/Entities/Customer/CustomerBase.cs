@@ -25,6 +25,10 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
     void Awake()
     {
+        var allFoods = new DeliverableFood[4] { DeliverableFood.MilanesaDeBerenjena, DeliverableFood.MilanesaDeCarne, DeliverableFood.MilanesaDePescado, DeliverableFood.MilanesaDePollo };
+
+        wantedFood = allFoods[Random.Range(0, allFoods.Length)];
+
         _rb = GetComponent<Rigidbody>();
         _coll = GetComponent<Collider>();
         _rend = GetComponentInChildren<Renderer>();
@@ -143,10 +147,6 @@ public class CustomerBase : MonoBehaviour, IInteractuable
             var castedFood = food as Milanesa;
             return castedFood.typeOfMilanga == Milanesa.MilanesaType.Berenjena;
         }
-        else if (wantedFood == DeliverableFood.PapasFritas)
-        {
-            return false;
-        }
         else return false;
     }
 
@@ -169,6 +169,5 @@ public enum DeliverableFood
     MilanesaDeCarne,
     MilanesaDePollo,
     MilanesaDeBerenjena,
-    MilanesaDePescado,
-    PapasFritas
+    MilanesaDePescado
 }

@@ -8,6 +8,7 @@ public class MilanesaButtonSpawner : MonoBehaviour, IInteractuable
     protected Renderer _rend;
     public Collider spawningBox;
     public Milanesa milangaPrefab;
+    public int moneyCost;
 
 
     void Awake()
@@ -22,11 +23,16 @@ public class MilanesaButtonSpawner : MonoBehaviour, IInteractuable
 
     public void Interact()
     {
-        var randompoint = GetRandomPointOnBoundingBox();
+        if (GameManager.Instance.HasEnoughMoney(moneyCost))
+        {
+            var randompoint = GetRandomPointOnBoundingBox();
 
-        var instancedMilanga = Instantiate(milangaPrefab, randompoint, Quaternion.identity);
-        instancedMilanga.transform.SetParent(null);
-        instancedMilanga.transform.eulerAngles = new Vector3(0, 0, 90);
+            var instancedMilanga = Instantiate(milangaPrefab, randompoint, Quaternion.identity);
+            instancedMilanga.transform.SetParent(null);
+            instancedMilanga.transform.eulerAngles = new Vector3(0, 0, 90);
+
+            GameManager.Instance.AddMoneyValue(-moneyCost);
+        }
     }
 
     Vector3 GetRandomPointOnBoundingBox()

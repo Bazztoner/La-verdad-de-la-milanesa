@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        if (EditorApplication.isPlaying) headSensitivity *= 3;
+        if (Application.isEditor) headSensitivity *= 3;
     }
 
     void Update()
