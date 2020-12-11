@@ -29,7 +29,7 @@ public class MilanesaStation : FoodStationBase, IInteractuable
     protected override void Start()
     {
         milanesaPosition = transform.Find("MilanesaPosition");
-        minigame = FindObjectOfType<Canvas>().GetComponentInChildren<EmpanateMilanesaMinigame>(true);
+        minigame = GameObject.Find("MainCanvas").GetComponent<Canvas>().GetComponentInChildren<EmpanateMilanesaMinigame>(true);
         _an = GetComponentInChildren<Animator>();
         CurrentCharges = maxBreadCharges;
         base.Start();

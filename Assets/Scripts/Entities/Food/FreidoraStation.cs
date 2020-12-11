@@ -51,6 +51,7 @@ public class FreidoraStation : FoodStationBase
             {
                 var pos = milanesas[i].Item1;
                 milanesas[i] = new Tuple<Transform, Milanesa>(pos, milangaToAdd);
+                milangaToAdd.StartCooking();
                 return pos;
             }
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Milanesa : FoodBase
 {
@@ -18,7 +19,11 @@ public class Milanesa : FoodBase
 
     float _currentCookingTime;
 
-    public SpriteRenderer[] stateIcons;
+    Canvas _cnv;
+
+    public Image[] stateIcons;
+    public Animator progressBar;
+    Image _progressBar;
 
     public enum MilanesaType { Carne, Pollo, Berenjena, Pescado }
 
@@ -61,10 +66,17 @@ public class Milanesa : FoodBase
     {
         base.Start();
 
-        stateIcons = new SpriteRenderer[2];
+        _cnv = GetComponentInChildren<Canvas>(true);
+        _progressBar = progressBar.GetComponentsInChildren<Image>(true).First(x => x.name == "Filler");
+        _progressBar.fillAmount = 0f;
+        progressBar.gameObject.SetActive(false);
 
-        stateIcons[(int)StateSprites.CookWarning] = transform.Find("ExclamationMark").GetComponent<SpriteRenderer>();
-        stateIcons[(int)StateSprites.Overcooked] = transform.Find("FireIcon").GetComponent<SpriteRenderer>();
+        stateIcons = new Image[2];
+
+        var icons = GetComponentsInChildren<Image>(true);
+
+        stateIcons[(int)StateSprites.CookWarning] = icons.First(x => x.name == "ExclamationMark");
+        stateIcons[(int)StateSprites.Overcooked] = icons.First(x => x.name == "FireIcon");
 
     }
 
@@ -72,11 +84,7 @@ public class Milanesa : FoodBase
     {
         base.Update();
 
-        //I CAN'T MAKE a fucking billboard for fuck's sake
-        /*foreach (var item in stateIcons)
-        {
-            item.transform.localRotation = _player.cam.transform.rotation;
-        }*/
+        //_cnv.transform.LookAt(_player.transform);
     }
 
     public void OnTurnMilanesaForEnhuevating()
@@ -126,6 +134,7 @@ public class Milanesa : FoodBase
     public override void PulledFromCooking()
     {
         stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(false);
+        progressBar.SetBool("cooking", false);
     }
 
     /// <summary>
@@ -135,7 +144,14 @@ public class Milanesa : FoodBase
     public void AddCookingTime(float t)
     {
         _currentCookingTime += t;
+        _progressBar.fillAmount = _currentCookingTime / cookingTime;
         ManageCookingTime();
+    }
+
+    public void StartCooking()
+    {
+        progressBar.gameObject.SetActive(true);
+        progressBar.SetBool("cooking", true);
     }
 
     void ManageCookingTime()
@@ -144,11 +160,13 @@ public class Milanesa : FoodBase
         {
             stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(true);
             stateIcons[(int)StateSprites.Overcooked].gameObject.SetActive(false);
+            progressBar.SetBool("cooking", false);
         }
         else if (IsOvercooked())
         {
             stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(false);
             stateIcons[(int)StateSprites.Overcooked].gameObject.SetActive(true);
+            progressBar.gameObject.SetActive(false);
         }
     }
 }

@@ -16,7 +16,7 @@ public class ChoppingTableStation : FoodStationBase
     protected override void Start()
     {
         choppingPosition = transform.Find("FoodPos");
-        minigame = FindObjectOfType<Canvas>().GetComponentInChildren<CutVeggiesMinigame>(true);
+        minigame = GameObject.Find("MainCanvas").GetComponent<Canvas>().GetComponentInChildren<CutVeggiesMinigame>(true);
         _an = GetComponentInChildren<Animator>();
         base.Start();
     }
