@@ -73,7 +73,7 @@ public class EmpanateMilanesaMinigame : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         sideText.text = " ";
-        progressText.text = "Complete!";
+        progressText.text = "Completo!";
 
         yield return new WaitForSeconds(t);
 

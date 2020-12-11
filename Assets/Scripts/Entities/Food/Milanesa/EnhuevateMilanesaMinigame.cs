@@ -94,7 +94,7 @@ public class EnhuevateMilanesaMinigame : MonoBehaviour
 
 		yield return new WaitForEndOfFrame();
 
-		progressText.text = "Complete!";
+		progressText.text = "Completo!";
 
 		yield return new WaitForSeconds(t);
 
