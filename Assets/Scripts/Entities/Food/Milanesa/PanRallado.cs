@@ -18,10 +18,11 @@ public class PanRallado : MonoBehaviour, IInteractuable
 
     public void Interact()
     {
-        if (GameManager.Instance.HasEnoughMoney(moneyCost))
+        if (GameManager.Instance.HasEnoughMoney(moneyCost) && !station.HasFullTray())
         {
             station.FillTrayWithPanRallado();
             GameManager.Instance.AddMoneyValue(-moneyCost);
+            GameManager.Instance.SpawnMoneyPrompt(this.transform.position, -moneyCost);
         }
         else print("NO HAY PLATA!");
     }

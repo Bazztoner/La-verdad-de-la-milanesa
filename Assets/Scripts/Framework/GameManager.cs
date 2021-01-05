@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI moneyBoxText;
     public TextMeshProUGUI hudMoneyText;
 
+    public GameObject moneyPrompt;
+
     void Start()
     {
         CurrentMoney = startingMoney;
@@ -84,7 +86,15 @@ public class GameManager : MonoBehaviour
     public void AddMoneyValue(int money)
     {
         CurrentMoney += money;
+    }
 
+    public void SpawnMoneyPrompt(Vector3 position, int money)
+    {
+        var popup = GameObject.Instantiate(moneyPrompt, position, Quaternion.identity);
+        var text = popup.GetComponentInChildren<TextMeshProUGUI>();
+        text.color = money > 0 ? Color.green : money < 0 ? Color.red : Color.black;
+        text.text = money > 0 ? "+" + money.ToString() : money.ToString();
+        Destroy(popup, 5f);
     }
 
     void Update()

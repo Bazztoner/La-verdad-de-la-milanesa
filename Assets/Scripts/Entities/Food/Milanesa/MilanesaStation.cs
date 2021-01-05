@@ -74,6 +74,11 @@ public class MilanesaStation : FoodStationBase, IInteractuable
         CurrentCharges = maxBreadCharges;
     }
 
+    public bool HasFullTray()
+    {
+        return CurrentCharges >= maxBreadCharges;
+    }
+
     /// <summary>
     /// DO NOT USE YET!!
     /// </summary>

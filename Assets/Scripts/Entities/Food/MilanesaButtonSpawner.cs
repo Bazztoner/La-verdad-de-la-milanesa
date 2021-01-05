@@ -32,6 +32,7 @@ public class MilanesaButtonSpawner : MonoBehaviour, IInteractuable
             instancedMilanga.transform.eulerAngles = new Vector3(0, 0, 90);
 
             GameManager.Instance.AddMoneyValue(-moneyCost);
+            GameManager.Instance.SpawnMoneyPrompt(transform.position, -moneyCost);
         }
     }
 

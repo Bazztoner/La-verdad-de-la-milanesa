@@ -1774,6 +1774,8 @@ MonoBehaviour:
   hudTimeText: {fileID: 0}
   moneyBoxText: {fileID: 1257207748}
   hudMoneyText: {fileID: 0}
+  moneyPrompt: {fileID: 5927343296609574422, guid: ebe53b056cd6b1d458f8584f64d7038f,
+    type: 3}
 --- !u!4 &646974866
 Transform:
   m_ObjectHideFlags: 0
