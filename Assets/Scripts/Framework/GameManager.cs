@@ -105,7 +105,7 @@ public class GameManager: MonoBehaviour
 		if (Mathf.Approximately(decimalSeconds, 0)) decimalSeconds = 00;
 
 		var minutesString = "0" + minutes;
-		var secondsString = Mathf.Approximately(decimalSeconds, 0) ? "00" : Mathf.RoundToInt(decimalSeconds).ToString();
+		var secondsString = decimalSeconds < 10 ? "0"+ Mathf.FloorToInt(decimalSeconds).ToString() : Mathf.FloorToInt(decimalSeconds).ToString();
 
 		return (minutesString + ":" + secondsString);
 	}
