@@ -18,13 +18,17 @@ public class PanRallado : MonoBehaviour, IInteractuable
 
     public void Interact()
     {
-        if (GameManager.Instance.HasEnoughMoney(moneyCost) && !station.HasFullTray())
+        if (!station.HasFullTray())
         {
-            station.FillTrayWithPanRallado();
-            GameManager.Instance.AddMoneyValue(-moneyCost);
-            GameManager.Instance.SpawnMoneyPrompt(this.transform.position, -moneyCost);
+            if (GameManager.Instance.HasEnoughMoney(moneyCost))
+            {
+                station.FillTrayWithPanRallado();
+                GameManager.Instance.AddMoneyValue(-moneyCost);
+                GameManager.Instance.SpawnMoneyPrompt(this.transform.position, -moneyCost);
+            }
+            else print("NO HAY PLATA!");
         }
-        else print("NO HAY PLATA!");
+        else print("BANDEJA LLENA!");
     }
 
     public virtual void ActivateHighlight(bool state)
