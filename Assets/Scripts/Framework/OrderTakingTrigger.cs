@@ -7,10 +7,10 @@ public class OrderTakingTrigger : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Customer"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Costumer"))
         {
-            var customer = other.GetComponent<CustomerBase>();
-            customer.StartOrder();
+            var Costumer = other.GetComponent<CostumerBase>();
+            Costumer.StartOrder();
         }   
     }
 }

@@ -26,10 +26,10 @@ public class SimpleWaypointWalker : MonoBehaviour
         var movementDelta = direction * movementSpeed * Time.fixedDeltaTime;
         var adjustedMovementDelta = movementDelta.sqrMagnitude > toWaypoint.sqrMagnitude ? toWaypoint : movementDelta;
 
-        transform.forward = direction;
+        transform.forward = new Vector3(direction.x, transform.forward.y, direction.z);
         _rb.MovePosition(_rb.position + adjustedMovementDelta);
 
-        if ((current.transform.position - transform.position).sqrMagnitude < .1f)
+        if ((current.transform.position - transform.position).sqrMagnitude < current.nearDistance)
             current = current.Next;
     }
 }

@@ -23,15 +23,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public int CurrentMoney 
-    { 
-        get => _currentMoney; 
-        private set 
-        { 
+    public int CurrentMoney
+    {
+        get => _currentMoney;
+        private set
+        {
             _currentMoney = Mathf.Max(value, 0);
-            moneyBoxText.text = "$"+CurrentMoney.ToString();
+            moneyBoxText.text = "$" + CurrentMoney.ToString();
             moneyBoxText.color = CurrentMoney > 0 ? Color.green : Color.red;
-        } 
+        }
     }
 
     public float levelTimer, miseEnPlaceTime;
@@ -40,6 +40,9 @@ public class GameManager : MonoBehaviour
     public int startingMoney;
     int _currentMoney;
 
+    public LevelCostumerList costumerSpawner;
+    List<CostumerBase> _idleCostumers;
+
     public TextMeshProUGUI clockText;
     public TextMeshProUGUI hudTimeText;
     public TextMeshProUGUI moneyBoxText;
@@ -47,8 +50,13 @@ public class GameManager : MonoBehaviour
 
     public GameObject moneyPrompt;
 
+    public Transform CostumerSpawnPoint;
+
     void Start()
     {
+        costumerSpawner = GetComponent<LevelCostumerList>();
+        _idleCostumers = new List<CostumerBase>();
+
         CurrentMoney = startingMoney;
         _currentTime = levelTimer;
 
@@ -60,11 +68,13 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LevelTimer()
     {
-        //Wait for mise on place time to activate customers - we should account for customer travel time
+        //Wait for mise on place time to activate Costumers - we should account for Costumer travel time
 
         yield return new WaitForSeconds(miseEnPlaceTime);
 
-        //activate customers
+        StartCoroutine(SpawnCostumer());
+
+        //activate Costumers
         //activate timer on canvas
 
         while (true)
@@ -81,6 +91,41 @@ public class GameManager : MonoBehaviour
             }
         }
 
+    }
+
+    WaypointChain GetFreeWaypoint()
+    {
+        return costumerSpawner.spawnPoints.FirstOrDefault(x => x.currentCostumer == null);
+    }
+
+    public void OnFinishedCostumer(WaypointChain wpChain)
+    {
+        if (_idleCostumers.Any())
+        {
+            var newCostumer = _idleCostumers.First();
+            wpChain.SetCostumer(newCostumer);
+            _idleCostumers.Remove(newCostumer);
+        }
+        else return;
+    }
+
+    IEnumerator SpawnCostumer()
+    {
+        do
+        {
+            var spawningCostumer = costumerSpawner.GetCostumer();
+
+            if (spawningCostumer == null) yield break;
+
+            spawningCostumer.Item1.gameObject.SetActive(true);
+
+            var wpChain = GetFreeWaypoint();
+
+            if (wpChain != null) wpChain.SetCostumer(spawningCostumer.Item1);
+            else _idleCostumers.Add(spawningCostumer.Item1);
+
+            yield return new WaitForSeconds(spawningCostumer.Item2);
+        } while (true);
     }
 
     public void AddMoneyValue(int money)
@@ -100,6 +145,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         clockText.text = SecondsToTimer(_currentTime);
+
     }
 
     public void EndLevel()
