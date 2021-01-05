@@ -120,6 +120,8 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         print(elreturn);
         orderRecieved = true;
 
+        if (correctFood) GameManager.Instance.AddMoneyValue(100);
+
         StartCoroutine(EmotionIconTimer(correctFood));
     }
 
