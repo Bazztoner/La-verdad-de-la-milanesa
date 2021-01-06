@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
     void ScanForInteractuables()
     {
-        var mask = LayerMask.GetMask("Interactuable", "Costumer");
+        var mask = LayerMask.GetMask("Interactuable", "Customer");
         var hits = Physics.Raycast(cam.transform.position, cam.transform.forward, out _rch, interactuableRange, mask);
         if (hits)
         {
@@ -145,10 +145,10 @@ public class PlayerController : MonoBehaviour
                         _pointedInteractuable = interact;
                         _pointedInteractuable.ActivateHighlight(true);
                     }
-                    else if (interact is FoodStationBase || interact is OrderDelivery || interact is CostumerBase)
+                    else if (interact is FoodStationBase || interact is OrderDelivery || interact is CustomerBase)
                     {
-                        var Costumer = interact as CostumerBase;
-                        if (Costumer != null && Costumer.orderRecieved) return;
+                        var customer = interact as CustomerBase;
+                        if (customer != null && customer.orderRecieved) return;
                         _pointedInteractuable = interact;
                         _pointedInteractuable.ActivateHighlight(true);
                     }

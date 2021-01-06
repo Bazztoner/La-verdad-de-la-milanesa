@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
     public int startingMoney;
     int _currentMoney;
 
-    public LevelCostumerList costumerSpawner;
-    List<CostumerBase> _idleCostumers;
+    public LevelCustomerList customerSpawner;
+    List<CustomerBase> _idleCustomers;
 
     public TextMeshProUGUI clockText;
     public TextMeshProUGUI hudTimeText;
@@ -50,12 +50,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject moneyPrompt;
 
-    public Transform CostumerSpawnPoint;
+    public Transform customerSpawnPoint;
 
     void Start()
     {
-        costumerSpawner = GetComponent<LevelCostumerList>();
-        _idleCostumers = new List<CostumerBase>();
+        customerSpawner = GetComponent<LevelCustomerList>();
+        _idleCustomers = new List<CustomerBase>();
 
         CurrentMoney = startingMoney;
         _currentTime = levelTimer;
@@ -68,13 +68,13 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LevelTimer()
     {
-        //Wait for mise on place time to activate Costumers - we should account for Costumer travel time
+        //Wait for mise on place time to activate Customers - we should account for Customers travel time
 
         yield return new WaitForSeconds(miseEnPlaceTime);
 
-        StartCoroutine(SpawnCostumer());
+        StartCoroutine(SpawnCustomer());
 
-        //activate Costumers
+        //activate Customers
         //activate timer on canvas
 
         while (true)
@@ -95,36 +95,36 @@ public class GameManager : MonoBehaviour
 
     WaypointChain GetFreeWaypoint()
     {
-        return costumerSpawner.spawnPoints.FirstOrDefault(x => x.currentCostumer == null);
+        return customerSpawner.spawnPoints.FirstOrDefault(x => x.currentCustimer == null);
     }
 
-    public void OnFinishedCostumer(WaypointChain wpChain)
+    public void OnFinishedCustomer(WaypointChain wpChain)
     {
-        if (_idleCostumers.Any())
+        if (_idleCustomers.Any())
         {
-            var newCostumer = _idleCostumers.First();
-            wpChain.SetCostumer(newCostumer);
-            _idleCostumers.Remove(newCostumer);
+            var newCustomer = _idleCustomers.First();
+            wpChain.SetCustomer(newCustomer);
+            _idleCustomers.Remove(newCustomer);
         }
         else return;
     }
 
-    IEnumerator SpawnCostumer()
+    IEnumerator SpawnCustomer()
     {
         do
         {
-            var spawningCostumer = costumerSpawner.GetCostumer();
+            var customerData = customerSpawner.GetCustomer();
 
-            if (spawningCostumer == null) yield break;
+            if (customerData == null) yield break;
 
-            spawningCostumer.Item1.gameObject.SetActive(true);
+            customerData.Item1.gameObject.SetActive(true);
 
             var wpChain = GetFreeWaypoint();
 
-            if (wpChain != null) wpChain.SetCostumer(spawningCostumer.Item1);
-            else _idleCostumers.Add(spawningCostumer.Item1);
+            if (wpChain != null) wpChain.SetCustomer(customerData.Item1);
+            else _idleCustomers.Add(customerData.Item1);
 
-            yield return new WaitForSeconds(spawningCostumer.Item2);
+            yield return new WaitForSeconds(customerData.Item2);
         } while (true);
     }
 

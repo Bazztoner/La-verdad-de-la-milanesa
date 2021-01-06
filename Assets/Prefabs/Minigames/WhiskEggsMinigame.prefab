@@ -636,13 +636,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 3566690264902315822}
-    characterCount: 8
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -852,13 +852,13 @@ MonoBehaviour:
   m_margin: {x: 105.40537, y: 0, z: 109.169914, w: 0}
   m_textInfo:
     textComponent: {fileID: 8585448892172403234}
-    characterCount: 8
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -1095,27 +1095,32 @@ PrefabInstance:
     - target: {fileID: 4284435696908317246, guid: d47d81938a59d9c4e864b5bf6a820a66,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4284435696908317246, guid: d47d81938a59d9c4e864b5bf6a820a66,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4284435696908317246, guid: d47d81938a59d9c4e864b5bf6a820a66,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4284435696908317246, guid: d47d81938a59d9c4e864b5bf6a820a66,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4284435696908317246, guid: d47d81938a59d9c4e864b5bf6a820a66,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
       value: 92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284435696908317246, guid: d47d81938a59d9c4e864b5bf6a820a66,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6353655711909141856, guid: d47d81938a59d9c4e864b5bf6a820a66,
         type: 3}

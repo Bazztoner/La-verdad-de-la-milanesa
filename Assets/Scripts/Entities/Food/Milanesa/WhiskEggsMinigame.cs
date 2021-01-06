@@ -33,7 +33,6 @@ public class WhiskEggsMinigame : MonoBehaviour
     {
         endingSequence = false;
         _station = station;
-        progressText.text = "Keep on!";
 
         var intTime = Mathf.Lerp(3, 0, _currentWhiskingTime / whiskTime);
         bowlAn.Play(Mathf.RoundToInt(intTime).ToString());

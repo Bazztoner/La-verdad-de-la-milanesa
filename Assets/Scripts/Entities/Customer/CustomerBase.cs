@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class CostumerBase : MonoBehaviour, IInteractuable
+public class CustomerBase : MonoBehaviour, IInteractuable
 {
     protected PlayerController _player;
     protected Renderer _rend;
@@ -127,7 +127,7 @@ public class CostumerBase : MonoBehaviour, IInteractuable
 
         print("BUENO, ESPERÉ " + maxWaitTime + " Y NO ME DIERON LA ORDEN, ME TOMO EL PALO");
 
-        currentChain.OnFinishedCostumer();
+        currentChain.OnFinishedCustomer();
         currentChain = null;
 
         StartCoroutine(EmotionIconTimer(false));
@@ -146,7 +146,7 @@ public class CostumerBase : MonoBehaviour, IInteractuable
         happyIcon.gameObject.SetActive(false);
         angryIcon.gameObject.SetActive(false);
 
-        _walker.current = GameManager.Instance.costumerSpawner.patrolOutStart;
+        _walker.current = GameManager.Instance.customerSpawner.patrolOutStart;
     }
 
     public void GetDelivery(OrderDelivery delivery)
@@ -164,7 +164,7 @@ public class CostumerBase : MonoBehaviour, IInteractuable
         print(elreturn);
         orderRecieved = true;
 
-        currentChain.OnFinishedCostumer();
+        currentChain.OnFinishedCustomer();
         currentChain = null;
 
         //HARDCODEA3
