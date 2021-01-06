@@ -13,9 +13,9 @@ public class LevelCostumerList : MonoBehaviour
     public WaypointChain[] spawnPoints;
     public Waypoint patrolOutStart;
 
-    byte _CostumerIndex;
+    byte _costumerIndex;
 
-    public byte CostumerIndex { get => _CostumerIndex; }
+    public byte CostumerIndex { get => _costumerIndex; }
 
     /// <summary>
     /// Returns a tuple with the Costumer to spawn and a delay for WaitForSeconds
@@ -23,19 +23,19 @@ public class LevelCostumerList : MonoBehaviour
     /// <returns></returns>
     public Tuple<CostumerBase, int> GetCostumer()
     {
-        if (CostumerIndex >= CostumerData.Length)
+        if (CostumerIndex >= CostumerData.Length - 1)
         {
             Debug.Log("NO HAY MAS CostumerS");
             return null;
         }
 
         var costumer = GameObject.Instantiate(CostumerPrefab, GameManager.Instance.CostumerSpawnPoint.position, Quaternion.identity);
-        costumer.Initialize(CostumerData[_CostumerIndex].orderType);
+        costumer.Initialize(CostumerData[_costumerIndex].orderType);
         costumer.gameObject.SetActive(false);
 
-        var spawnDelay = CostumerData[_CostumerIndex + 1].spawnDelay - CostumerData[_CostumerIndex].spawnDelay;
+        var spawnDelay = CostumerData[_costumerIndex + 1].spawnDelay - CostumerData[_costumerIndex].spawnDelay;
 
-        _CostumerIndex++;
+        _costumerIndex++;
 
         return Tuple.Create(costumer, spawnDelay);
     }
