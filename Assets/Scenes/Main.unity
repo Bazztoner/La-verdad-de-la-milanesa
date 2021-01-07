@@ -1999,7 +1999,7 @@ MonoBehaviour:
   hudMoneyText: {fileID: 0}
   moneyPrompt: {fileID: 5927343296609574422, guid: ebe53b056cd6b1d458f8584f64d7038f,
     type: 3}
-  customerSpawnPoint: {fileID: 0}
+  customerSpawnPoint: {fileID: 1398077801}
 --- !u!4 &646974866
 Transform:
   m_ObjectHideFlags: 0
@@ -2026,7 +2026,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ff531d78a1d7d45b01f44a7f59aca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerData: []
+  customers: {fileID: 11400000, guid: add98bb6a74a1864d82d6f9fdb180ccb, type: 2}
+  levelPrefix: LV1
   customerPrefab: {fileID: 3842029014222870563, guid: 4830bf1cf6f13ce4b935dc344d162e61,
     type: 3}
   spawnPoints:

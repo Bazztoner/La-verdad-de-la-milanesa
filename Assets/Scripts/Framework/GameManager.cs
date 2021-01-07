@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        if (customerSpawnPoint == null) customerSpawnPoint = GameObject.Find("CustomerSpawnPoint").transform;
+
         customerSpawner = GetComponent<LevelCustomerList>();
         _idleCustomers = new List<CustomerBase>();
 
