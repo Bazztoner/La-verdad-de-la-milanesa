@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
     public GameObject moneyPrompt;
 
     public Transform customerSpawnPoint;
+    public Animator clockAnimator;
+    public float remainingTimeForClockAnim;
 
     void Start()
     {
@@ -65,7 +67,21 @@ public class GameManager : MonoBehaviour
         moneyBoxText.text = "$" + CurrentMoney.ToString();
         moneyBoxText.color = CurrentMoney > 0 ? Color.green : Color.red;
 
+        if (clockAnimator == null) clockAnimator = GameObject.FindObjectsOfType<Animator>().First(x => x.name == "Reloj");
+
         StartCoroutine(LevelTimer());
+        StartCoroutine(ClockAnimation());
+    }
+
+    IEnumerator ClockAnimation()
+    {
+        yield return new WaitUntil(() => _currentTime <= remainingTimeForClockAnim);
+
+        if (clockAnimator != null) clockAnimator.SetBool("countdown", true);
+
+        yield return new WaitUntil(() => _currentTime <= 0f);
+
+        if (clockAnimator != null) clockAnimator.SetBool("countdown", false);
     }
 
     IEnumerator LevelTimer()
