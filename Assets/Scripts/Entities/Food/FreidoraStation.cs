@@ -16,6 +16,8 @@ public class FreidoraStation : FoodStationBase
 
     Animator _an;
 
+    public ParticleSystem oilBubbles;
+
     public int CurrentMilangas()
     {
         return milanesas.Where(x => x.Item2 != null).Count();
@@ -23,6 +25,9 @@ public class FreidoraStation : FoodStationBase
 
     protected override void Start()
     {
+        if (oilBubbles == null) oilBubbles = GetComponentInChildren<ParticleSystem>();
+        oilBubbles.Stop();
+
         milanesas = new Tuple<Transform, Milanesa>[maxMilangasCooking];
         
         var milanesaPositions = GetComponentsInChildren<Transform>().Where(x => x.name == "MilanesaPosition").ToArray();
@@ -52,6 +57,7 @@ public class FreidoraStation : FoodStationBase
                 var pos = milanesas[i].Item1;
                 milanesas[i] = new Tuple<Transform, Milanesa>(pos, milangaToAdd);
                 milangaToAdd.StartCooking();
+                oilBubbles.Play();
                 return pos;
             }
         }
@@ -90,6 +96,8 @@ public class FreidoraStation : FoodStationBase
                 milanesas[i] = new Tuple<Transform, Milanesa>(pos, null);
             }
         }
+
+        if (CurrentMilangas() <= 0) oilBubbles.Stop();
     }
 
 
