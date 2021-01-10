@@ -156,7 +156,7 @@ MonoBehaviour:
   enhuevatedImage: {fileID: 21300000, guid: 54197fa38cc5f7c48891351a7759211d, type: 3}
   typeOfMilanga: 2
   tickingSound: {fileID: 8300000, guid: 8b976950a9e9cff45831814ed98892f0, type: 3}
-  burntSound: {fileID: 8300000, guid: b2a22c8e0d794f1419ed1a64f28f6d5e, type: 3}
+  burntSound: {fileID: 8300000, guid: 48c75e1556aa70b4590dad4c9491bd6d, type: 3}
   currentEmpanatingSide: 1
   currentEnhuevatingSide: 1
 --- !u!65 &847053901642728654
@@ -186,7 +186,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

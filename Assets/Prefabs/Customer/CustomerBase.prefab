@@ -1335,7 +1335,7 @@ MonoBehaviour:
   angryIcon: {fileID: 0}
   orderTimeFeedback: {fileID: 0}
   currentChain: {fileID: 0}
-  orderSound: {fileID: 8300000, guid: 2f5b2c5157492e14ba22d00b89efa963, type: 3}
+  orderSound: {fileID: 8300000, guid: b731fec1a2421f0468c4ca093d91105e, type: 3}
   happySound: {fileID: 8300000, guid: dda0344216ed52545aa268e77581b84e, type: 3}
   angrySound: {fileID: 8300000, guid: 60c5909ca9414524892d4ee541a0b383, type: 3}
 --- !u!114 &66549052

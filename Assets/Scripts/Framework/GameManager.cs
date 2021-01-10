@@ -82,14 +82,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(() => _currentTime <= remainingTimeForClockAnim);
 
         if (clockAnimator != null) clockAnimator.SetBool("countdown", true);
-        _audioSource.loop = true;
         _audioSource.clip = last30SecondsSound;
         _audioSource.Play();
 
         yield return new WaitUntil(() => _currentTime <= 0f);
 
         if (clockAnimator != null) clockAnimator.SetBool("countdown", false);
-        _audioSource.Stop();
     }
 
     IEnumerator LevelTimer()
@@ -181,12 +179,20 @@ public class GameManager : MonoBehaviour
         if (CurrentMoney > 0)
         {
             print("WIN");
+            _audioSource.volume = 1;
+            _audioSource.clip = winClip;
+            _audioSource.loop = false;
             _audioSource.PlayOneShot(winClip);
+            _audioSource.Play();
         }
         else
         {
             print("LOSE");
+            _audioSource.volume = 1;
+            _audioSource.clip = loseClip;
+            _audioSource.loop = false;
             _audioSource.PlayOneShot(loseClip);
+            _audioSource.Play();
         }
     }
 

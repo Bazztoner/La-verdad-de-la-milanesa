@@ -168,9 +168,13 @@ public class Milanesa : FoodBase
             stateIcons[(int)StateSprites.Overcooked].gameObject.SetActive(false);
             progressBar.SetBool("cooking", false);
 
-            _audioSource.loop = true;
-            _audioSource.clip = tickingSound;
-            _audioSource.Play();
+            if (_audioSource.clip != tickingSound)
+            {
+                _audioSource.clip = tickingSound;
+                _audioSource.volume = 1;
+                _audioSource.loop = true;
+                _audioSource.Play();
+            }
         }
         else if (IsOvercooked())
         {
@@ -178,8 +182,13 @@ public class Milanesa : FoodBase
             stateIcons[(int)StateSprites.Overcooked].gameObject.SetActive(true);
             progressBar.gameObject.SetActive(false);
 
-            _audioSource.Stop();
-            _audioSource.PlayOneShot(burntSound);
+            if (_audioSource.clip != burntSound)
+            {
+                _audioSource.volume = 1;
+                _audioSource.clip = burntSound;
+                _audioSource.loop = false;
+                _audioSource.Play();
+            }
         }
     }
 }

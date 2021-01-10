@@ -30,6 +30,8 @@ public class WhiskEggsMinigame : MonoBehaviour
     {
         _audioSource = GetComponent<AudioSource>();
         _audioSource.volume = 0;
+        _audioSource.loop = true;
+        _audioSource.Play();
         progressText = transform.Find("ProgressText").GetComponent<TextMeshProUGUI>();
         whiskerAn.enabled = false;
     }
