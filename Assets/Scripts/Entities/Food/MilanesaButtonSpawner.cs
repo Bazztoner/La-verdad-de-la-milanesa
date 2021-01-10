@@ -29,7 +29,6 @@ public class MilanesaButtonSpawner : MonoBehaviour, IInteractuable
 
             var instancedMilanga = Instantiate(milangaPrefab, randompoint, Quaternion.identity);
             instancedMilanga.transform.SetParent(null);
-            instancedMilanga.transform.eulerAngles = new Vector3(0, 0, 90);
 
             GameManager.Instance.AddMoneyValue(-moneyCost);
             GameManager.Instance.SpawnMoneyPrompt(transform.position, -moneyCost);

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6608573738550058915
+--- !u!1 &312372154322189657
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1835877670714428127}
-  - component: {fileID: 6280317942843952101}
-  - component: {fileID: 3512851485872604325}
-  - component: {fileID: 1351828441536769936}
-  - component: {fileID: 1648020619306080919}
-  - component: {fileID: 847053901642728654}
-  m_Layer: 9
-  m_Name: MilanesaDeBerenjena
+  - component: {fileID: 2371288442664118619}
+  - component: {fileID: 5666331358202893537}
+  - component: {fileID: 3299261933626314988}
+  m_Layer: 0
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1835877670714428127
+--- !u!4 &2371288442664118619
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6608573738550058915}
-  m_LocalRotation: {x: 0.50000006, y: 0.5, z: 0.5, w: 0.49999997}
-  m_LocalPosition: {x: -5.1516, y: 1.169, z: 6.559}
-  m_LocalScale: {x: 0.011944175, y: 0.1975648, z: 0.1975648}
-  m_Children:
-  - {fileID: 1801484795981683688}
-  m_Father: {fileID: 0}
+  m_GameObject: {fileID: 312372154322189657}
+  m_LocalRotation: {x: -0.5000003, y: -0.49999967, z: -0.49999976, w: 0.50000024}
+  m_LocalPosition: {x: 0, y: 0.0052342415, z: 0}
+  m_LocalScale: {x: 0.16745, y: 0.16745, z: 0.014651874}
+  m_Children: []
+  m_Father: {fileID: 1835877670714428127}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 90.00001}
---- !u!33 &6280317942843952101
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: -90.00001}
+--- !u!33 &5666331358202893537
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6608573738550058915}
+  m_GameObject: {fileID: 312372154322189657}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &3512851485872604325
+--- !u!23 &3299261933626314988
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6608573738550058915}
+  m_GameObject: {fileID: 312372154322189657}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,6 +79,41 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &6608573738550058915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1835877670714428127}
+  - component: {fileID: 1351828441536769936}
+  - component: {fileID: 1648020619306080919}
+  - component: {fileID: 847053901642728654}
+  m_Layer: 9
+  m_Name: MilanesaDeBerenjena
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1835877670714428127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6608573738550058915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.1516, y: 1.169, z: 6.559}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2371288442664118619}
+  - {fileID: 1801484795981683688}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1351828441536769936
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -113,12 +144,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHand: {fileID: 0}
   clicksNeededBySide: 3
-  cookingTime: 9
+  cookingTime: 10
   sideAEnhuevated: 0
   sideBEnhuevated: 0
-  overcookingTime: 13
+  overcookingTime: 15
   stateIcons: []
-  progressBar: {fileID: 8332626146001922499}
+  progressBar: {fileID: 7549117811911663283, guid: c5a5c070021e3d34094228a9cb7ef23c,
+    type: 3}
+  meatImage: {fileID: 21300000, guid: f1b31eb8169d2c64397e7cc77426e601, type: 3}
+  enhuevatedImage: {fileID: 21300000, guid: 54197fa38cc5f7c48891351a7759211d, type: 3}
   typeOfMilanga: 2
   currentEmpanatingSide: 1
   currentEnhuevatingSide: 1
@@ -133,8 +167,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0016859, y: 2.0000005, z: 1}
-  m_Center: {x: 0.4382295, y: -1.5704651e-16, z: 0}
+  m_Size: {x: 0.3384331, y: 0.05539564, z: 0.21608159}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1809289865643347970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,23 +190,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823486632561642, guid: 337aff67d78c57a4f8ffdb6d4e7ac81f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7823486632561642, guid: 337aff67d78c57a4f8ffdb6d4e7ac81f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7823486632561642, guid: 337aff67d78c57a4f8ffdb6d4e7ac81f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7823486632561642, guid: 337aff67d78c57a4f8ffdb6d4e7ac81f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710677
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7823486632561642, guid: 337aff67d78c57a4f8ffdb6d4e7ac81f, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7823486632561642, guid: 337aff67d78c57a4f8ffdb6d4e7ac81f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -236,12 +270,6 @@ PrefabInstance:
 --- !u!224 &1801484795981683688 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7823486632561642, guid: 337aff67d78c57a4f8ffdb6d4e7ac81f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1809289865643347970}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &8332626146001922499 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7690051253676636609, guid: 337aff67d78c57a4f8ffdb6d4e7ac81f,
     type: 3}
   m_PrefabInstance: {fileID: 1809289865643347970}
   m_PrefabAsset: {fileID: 0}

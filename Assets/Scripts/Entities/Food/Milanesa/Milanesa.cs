@@ -19,11 +19,12 @@ public class Milanesa : FoodBase
 
     float _currentCookingTime;
 
-    Canvas _cnv;
-
     public Image[] stateIcons;
     public Animator progressBar;
     Image _progressBar;
+
+    [Header("Get from resources")]
+    public Sprite meatImage, enhuevatedImage;
 
     public enum MilanesaType { Carne, Pollo, Berenjena, Pescado }
 
@@ -66,7 +67,8 @@ public class Milanesa : FoodBase
     {
         base.Start();
 
-        _cnv = GetComponentInChildren<Canvas>(true);
+        if (_progressBar == null) progressBar = _cnv.GetComponentsInChildren<Animator>(true).First(x => x.name == "ProgressBar");
+
         _progressBar = progressBar.GetComponentsInChildren<Image>(true).First(x => x.name == "Filler");
         _progressBar.fillAmount = 0f;
         progressBar.gameObject.SetActive(false);
@@ -83,8 +85,6 @@ public class Milanesa : FoodBase
     protected override void Update()
     {
         base.Update();
-
-        //_cnv.transform.LookAt(_player.transform);
     }
 
     public void OnTurnMilanesaForEnhuevating()

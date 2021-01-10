@@ -12,12 +12,14 @@ public class PickupBase : MonoBehaviour, IInteractuable
     protected Renderer _rend;
     protected Rigidbody _rb;
     protected Collider _coll;
+    protected Canvas _cnv;
 
     protected virtual void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _coll = GetComponent<Collider>();
         _rend = GetComponentInChildren<Renderer>();
+        _cnv = GetComponentInChildren<Canvas>(true);
     }
 
     protected virtual void Start()
@@ -34,6 +36,8 @@ public class PickupBase : MonoBehaviour, IInteractuable
         {
             transform.position = playerHand.position;
         }
+
+        if (_cnv != null) _cnv.transform.LookAt(_player.cam.transform);
     }
 
     public virtual void Interact()

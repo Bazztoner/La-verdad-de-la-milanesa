@@ -15,6 +15,7 @@ public class EnhuevateMilanesaMinigame : MonoBehaviour
 	RectTransform[] _buttonPositions;
 	public Button turnButton;
 
+	public Image normalMeatImage;
 	public Image enhuevatedImage;
 
 	public bool endingSequence;
@@ -28,6 +29,10 @@ public class EnhuevateMilanesaMinigame : MonoBehaviour
 		_buttonPositions = buttonPositionsContainer.GetComponentsInChildren<RectTransform>().Where(x => x != buttonPositionsContainer).ToArray();
 		turnButton.transform.position = _buttonPositions[Random.Range(0, _buttonPositions.Length)].position;
 		_currentTeleportTime = 0f;
+
+		var allImg = GetComponentsInChildren<Image>(true);
+		normalMeatImage = allImg.First(x => x.name == "Meat");
+		enhuevatedImage = allImg.First(x => x.name == "EnhuevatedMeat");
 	}
 
 	public void Init(BowlStation station)
@@ -35,6 +40,8 @@ public class EnhuevateMilanesaMinigame : MonoBehaviour
 		endingSequence = false;
 		_station = station;
 		progressText.text = "";
+		normalMeatImage.sprite = station.currentMilanga.meatImage;
+		enhuevatedImage.sprite = station.currentMilanga.enhuevatedImage;
 
 		if (_station.currentMilanga.currentEnhuevatingSide) enhuevatedImage.enabled = _station.currentMilanga.sideAEnhuevated;
 		else enhuevatedImage.enabled = _station.currentMilanga.sideBEnhuevated;
