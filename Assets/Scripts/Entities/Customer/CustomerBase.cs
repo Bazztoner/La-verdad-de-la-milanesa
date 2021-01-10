@@ -19,48 +19,31 @@ public class CustomerBase : MonoBehaviour, IInteractuable
     public bool orderRecieved;
 
     public DeliverableFood wantedFood;
-    public SpriteRenderer speechGlobe, foodIcon, happyIcon, angryIcon;
+    public Image speechGlobe, foodIcon, happyIcon, angryIcon;
     public Image orderTimeFeedback;
 
+    Canvas _cnv;
     SimpleWaypointWalker _walker;
     public WaypointChain currentChain;
 
 
     void Awake()
     {
-        /*var allFoods = new DeliverableFood[4] { DeliverableFood.MilanesaDeBerenjena, DeliverableFood.MilanesaDeCarne, DeliverableFood.MilanesaDePescado, DeliverableFood.MilanesaDePollo };
-
-        wantedFood = allFoods[Random.Range(0, allFoods.Length)];*/
-
         _rb = GetComponent<Rigidbody>();
         _coll = GetComponent<Collider>();
         _rend = GetComponentInChildren<Renderer>();
         _player = FindObjectOfType<PlayerController>();
-        speechGlobe = transform.Find("SpeechGlobe").GetComponent<SpriteRenderer>();
+        _cnv = GetComponentInChildren<Canvas>(true);
+        _cnv.gameObject.SetActive(false);
+
+        var allImg = _cnv.GetComponentsInChildren<Image>(true);
+
+        speechGlobe = allImg.First(x => x.name == "SpeechGlobe").GetComponent<Image>();
         _walker = GetComponent<SimpleWaypointWalker>();
         _walker.current = null;
 
-        /*switch (wantedFood)
-        {
-            case DeliverableFood.MilanesaDeCarne:
-                foodIcon = speechGlobe.transform.Find("Carne").GetComponent<SpriteRenderer>();
-                break;
-            case DeliverableFood.MilanesaDePollo:
-                foodIcon = speechGlobe.transform.Find("Pollo").GetComponent<SpriteRenderer>();
-                break;
-            case DeliverableFood.MilanesaDeBerenjena:
-                foodIcon = speechGlobe.transform.Find("Berenjena").GetComponent<SpriteRenderer>();
-                break;
-            case DeliverableFood.MilanesaDePescado:
-                foodIcon = speechGlobe.transform.Find("Pescado").GetComponent<SpriteRenderer>();
-                break;
-            default:
-                print("Noncontré nada xd");
-                break;
-        }*/
-
-        angryIcon = speechGlobe.transform.Find("AngryIcon").GetComponent<SpriteRenderer>();
-        happyIcon = speechGlobe.transform.Find("HappyIcon").GetComponent<SpriteRenderer>();
+        angryIcon = allImg.First(x => x.name == "AngryIcon").GetComponent<Image>();
+        happyIcon = allImg.First(x => x.name == "HappyIcon").GetComponent<Image>();
 
         orderTimeFeedback = GetComponentsInChildren<Image>(true).Where(x => x.name == "RedFill").First();
     }
@@ -69,19 +52,21 @@ public class CustomerBase : MonoBehaviour, IInteractuable
     {
         wantedFood = orderType;
 
+        var allImg = speechGlobe.GetComponentsInChildren<Image>(true);
+
         switch (wantedFood)
         {
             case DeliverableFood.MilanesaDeCarne:
-                foodIcon = speechGlobe.transform.Find("Carne").GetComponent<SpriteRenderer>();
+                foodIcon = allImg.First(x => x.name == "Carne").GetComponent<Image>();
                 break;
             case DeliverableFood.MilanesaDePollo:
-                foodIcon = speechGlobe.transform.Find("Pollo").GetComponent<SpriteRenderer>();
+                foodIcon = allImg.First(x => x.name == "Pollo").GetComponent<Image>();
                 break;
             case DeliverableFood.MilanesaDeBerenjena:
-                foodIcon = speechGlobe.transform.Find("Berenjena").GetComponent<SpriteRenderer>();
+                foodIcon = allImg.First(x => x.name == "Berenjena").GetComponent<Image>();
                 break;
             case DeliverableFood.MilanesaDePescado:
-                foodIcon = speechGlobe.transform.Find("Pescado").GetComponent<SpriteRenderer>();
+                foodIcon = allImg.First(x => x.name == "Pescado").GetComponent<Image>();
                 break;
             default:
                 print("Noncontré nada xd");
@@ -93,6 +78,11 @@ public class CustomerBase : MonoBehaviour, IInteractuable
     {
         Initialize(orderType);
         maxWaitTime = orderWaitTime;
+    }
+
+    void Update()
+    {
+        _cnv.transform.LookAt(_player.cam.transform);
     }
 
     public void SetWaypoint(WaypointChain chain)
@@ -110,6 +100,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
     {
         print("PADRE, QUIERO " + wantedFood);
 
+        _cnv.gameObject.SetActive(true);
         speechGlobe.gameObject.SetActive(true);
         foodIcon.gameObject.SetActive(true);
 
@@ -136,6 +127,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
     IEnumerator EmotionIconTimer(bool happy)
     {
         foodIcon.gameObject.SetActive(false);
+        _cnv.transform.Find("ProgressBar").gameObject.SetActive(false);
 
         if (happy) happyIcon.gameObject.SetActive(true);
         else angryIcon.gameObject.SetActive(true);
