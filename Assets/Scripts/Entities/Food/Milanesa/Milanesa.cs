@@ -30,6 +30,9 @@ public class Milanesa : FoodBase
 
     public MilanesaType typeOfMilanga;
 
+    public AudioClip tickingSound, burntSound;
+
+
     enum StateSprites
     {
         CookWarning,
@@ -68,6 +71,8 @@ public class Milanesa : FoodBase
         base.Start();
 
         if (_progressBar == null) progressBar = _cnv.GetComponentsInChildren<Animator>(true).First(x => x.name == "ProgressBar");
+
+        _audioSource.Stop();
 
         _progressBar = progressBar.GetComponentsInChildren<Image>(true).First(x => x.name == "Filler");
         _progressBar.fillAmount = 0f;
@@ -135,6 +140,7 @@ public class Milanesa : FoodBase
     {
         stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(false);
         progressBar.SetBool("cooking", false);
+        _audioSource.Stop();
     }
 
     /// <summary>
@@ -161,12 +167,19 @@ public class Milanesa : FoodBase
             stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(true);
             stateIcons[(int)StateSprites.Overcooked].gameObject.SetActive(false);
             progressBar.SetBool("cooking", false);
+
+            _audioSource.loop = true;
+            _audioSource.clip = tickingSound;
+            _audioSource.Play();
         }
         else if (IsOvercooked())
         {
             stateIcons[(int)StateSprites.CookWarning].gameObject.SetActive(false);
             stateIcons[(int)StateSprites.Overcooked].gameObject.SetActive(true);
             progressBar.gameObject.SetActive(false);
+
+            _audioSource.Stop();
+            _audioSource.PlayOneShot(burntSound);
         }
     }
 }

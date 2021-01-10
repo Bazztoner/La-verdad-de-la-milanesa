@@ -26,8 +26,12 @@ public class CutVeggiesMinigame : MonoBehaviour
     EventSystem _eventSystem;
     #endregion
 
+    AudioSource _audioSource;
+    public AudioClip minigameSuccessSound, slashSound;
+
     void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         _veggies = GetComponentsInChildren<VeggieObject>();
 
         //AK ROBANDO!!
@@ -87,6 +91,7 @@ public class CutVeggiesMinigame : MonoBehaviour
     {
         if (endingSequence) return;
 
+        _audioSource.PlayOneShot(slashSound);
         _station.OnChop();
     }
 
@@ -110,6 +115,7 @@ public class CutVeggiesMinigame : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
 
+        _audioSource.PlayOneShot(minigameSuccessSound);
         progressText.text = "Completo!";
 
         yield return new WaitForSeconds(t);

@@ -54,12 +54,16 @@ public class GameManager : MonoBehaviour
     public Animator clockAnimator;
     public float remainingTimeForClockAnim;
 
+    AudioSource _audioSource;
+    public AudioClip last30SecondsSound, winClip, loseClip, moneyEarned, moneyLost;
+
     void Start()
     {
         if (customerSpawnPoint == null) customerSpawnPoint = GameObject.Find("CustomerSpawnPoint").transform;
 
         customerSpawner = GetComponent<LevelCustomerList>();
         _idleCustomers = new List<CustomerBase>();
+        _audioSource = GetComponent<AudioSource>();
 
         CurrentMoney = startingMoney;
         _currentTime = levelTimer;
@@ -78,10 +82,14 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(() => _currentTime <= remainingTimeForClockAnim);
 
         if (clockAnimator != null) clockAnimator.SetBool("countdown", true);
+        _audioSource.loop = true;
+        _audioSource.clip = last30SecondsSound;
+        _audioSource.Play();
 
         yield return new WaitUntil(() => _currentTime <= 0f);
 
         if (clockAnimator != null) clockAnimator.SetBool("countdown", false);
+        _audioSource.Stop();
     }
 
     IEnumerator LevelTimer()
@@ -149,6 +157,8 @@ public class GameManager : MonoBehaviour
     public void AddMoneyValue(int money)
     {
         CurrentMoney += money;
+        if (money < 0) _audioSource.PlayOneShot(moneyLost);
+        else _audioSource.PlayOneShot(moneyEarned);
     }
 
     public void SpawnMoneyPrompt(Vector3 position, int money)
@@ -171,9 +181,13 @@ public class GameManager : MonoBehaviour
         if (CurrentMoney > 0)
         {
             print("WIN");
-
+            _audioSource.PlayOneShot(winClip);
         }
-        else print("LOSE");
+        else
+        {
+            print("LOSE");
+            _audioSource.PlayOneShot(loseClip);
+        }
     }
 
     public bool HasEnoughMoney(int moneyAsked)

@@ -26,10 +26,14 @@ public class CustomerBase : MonoBehaviour, IInteractuable
     SimpleWaypointWalker _walker;
     public WaypointChain currentChain;
 
+    AudioSource _audioSource;
+
+    public AudioClip orderSound, happySound, angrySound;
 
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _audioSource = GetComponent<AudioSource>();
         _coll = GetComponent<Collider>();
         _rend = GetComponentInChildren<Renderer>();
         _player = FindObjectOfType<PlayerController>();
@@ -103,6 +107,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         _cnv.gameObject.SetActive(true);
         speechGlobe.gameObject.SetActive(true);
         foodIcon.gameObject.SetActive(true);
+        _audioSource.PlayOneShot(orderSound);
 
         while (_currentWaitTime <= maxWaitTime)
         {
@@ -129,8 +134,16 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         foodIcon.gameObject.SetActive(false);
         _cnv.transform.Find("ProgressBar").gameObject.SetActive(false);
 
-        if (happy) happyIcon.gameObject.SetActive(true);
-        else angryIcon.gameObject.SetActive(true);
+        if (happy)
+        {
+            happyIcon.gameObject.SetActive(true);
+            _audioSource.PlayOneShot(happySound);
+        }
+        else
+        {
+            angryIcon.gameObject.SetActive(true);
+            _audioSource.PlayOneShot(angrySound);
+        }
 
         yield return new WaitForSeconds(emotionIconTime);
 

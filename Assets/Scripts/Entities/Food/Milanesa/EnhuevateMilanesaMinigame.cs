@@ -23,8 +23,13 @@ public class EnhuevateMilanesaMinigame : MonoBehaviour
 	public float buttonTeleportTime;
 	float _currentTeleportTime;
 
+	AudioSource _audioSource;
+	public AudioClip minigameSuccessSound, enhuevateSound, turnMilangaSound;
+
 	void Awake()
 	{
+		_audioSource = GetComponent<AudioSource>();
+
 		progressText = transform.Find("ProgressText").GetComponent<TextMeshProUGUI>();
 		_buttonPositions = buttonPositionsContainer.GetComponentsInChildren<RectTransform>().Where(x => x != buttonPositionsContainer).ToArray();
 		turnButton.transform.position = _buttonPositions[Random.Range(0, _buttonPositions.Length)].position;
@@ -69,6 +74,8 @@ public class EnhuevateMilanesaMinigame : MonoBehaviour
 
 		enhuevatedImage.enabled = true;
 
+		_audioSource.PlayOneShot(enhuevateSound);
+
         if (_station.currentMilanga.IsEnhuevated())
         {
 			CompleteMinigame();
@@ -80,6 +87,8 @@ public class EnhuevateMilanesaMinigame : MonoBehaviour
 		if (endingSequence) return;
 
 		_station.currentMilanga.currentEnhuevatingSide = !_station.currentMilanga.currentEnhuevatingSide;
+
+		_audioSource.PlayOneShot(turnMilangaSound);
 
 		if (_station.currentMilanga.currentEnhuevatingSide) enhuevatedImage.enabled = _station.currentMilanga.sideAEnhuevated;
 		else enhuevatedImage.enabled = _station.currentMilanga.sideBEnhuevated;
@@ -101,6 +110,7 @@ public class EnhuevateMilanesaMinigame : MonoBehaviour
 
 		yield return new WaitForEndOfFrame();
 
+		_audioSource.PlayOneShot(minigameSuccessSound);
 		progressText.text = "Completo!";
 
 		yield return new WaitForSeconds(t);

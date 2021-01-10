@@ -13,12 +13,14 @@ public class PickupBase : MonoBehaviour, IInteractuable
     protected Rigidbody _rb;
     protected Collider _coll;
     protected Canvas _cnv;
+    protected AudioSource _audioSource;
 
     protected virtual void Awake()
     {
         _rb = GetComponent<Rigidbody>();
         _coll = GetComponent<Collider>();
         _rend = GetComponentInChildren<Renderer>();
+        _audioSource = GetComponentInChildren<AudioSource>();
         _cnv = GetComponentInChildren<Canvas>(true);
     }
 

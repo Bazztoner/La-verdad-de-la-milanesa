@@ -23,8 +23,13 @@ public class WhiskEggsMinigame : MonoBehaviour
 
     public bool MinigameComplete{ get { return _currentWhiskingTime >= whiskTime; } }
 
+    AudioSource _audioSource;
+    public AudioClip minigameSuccessSound;
+
     void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
+        _audioSource.volume = 0;
         progressText = transform.Find("ProgressText").GetComponent<TextMeshProUGUI>();
         whiskerAn.enabled = false;
     }
@@ -51,16 +56,19 @@ public class WhiskEggsMinigame : MonoBehaviour
 
             var intTime = Mathf.Lerp(3, 0, _currentWhiskingTime / whiskTime);
             bowlAn.Play(Mathf.RoundToInt(intTime).ToString());
+            _audioSource.volume = 1;
 
             if (MinigameComplete)
             {
                 whiskerAn.enabled = false;
+                _audioSource.Stop();
                 CompleteMinigame();
             }
         }
         else
         {
             whiskerAn.enabled = false;
+            _audioSource.volume = 0;
         }
     }
 
@@ -80,6 +88,7 @@ public class WhiskEggsMinigame : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
 
+        _audioSource.PlayOneShot(minigameSuccessSound);
         progressText.text = "Completo!";
 
         yield return new WaitForSeconds(t);

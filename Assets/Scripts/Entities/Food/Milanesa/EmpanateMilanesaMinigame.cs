@@ -14,8 +14,12 @@ public class EmpanateMilanesaMinigame : MonoBehaviour
 
     public bool endingSequence;
 
+    AudioSource _audioSource;
+    public AudioClip minigameSuccessSound, empanateSound, turnMilangaSound;
+
     void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         sideText = transform.Find("SideText").GetComponent<TextMeshProUGUI>();
         progressText = transform.Find("ProgressText").GetComponent<TextMeshProUGUI>();
         milangaImage = transform.Find("Milanesa").GetComponent<Image>();
@@ -40,6 +44,7 @@ public class EmpanateMilanesaMinigame : MonoBehaviour
             sideText.text = "Lado " + (_station.currentMilanga.currentEmpanatingSide ? "A" : "B");
             progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideEmpanation() + "/" + _station.currentMilanga.clicksNeededBySide;
             milangaImage.fillAmount = (float)_station.currentMilanga.GetCurrentSideEmpanation() / (float)_station.currentMilanga.clicksNeededBySide;
+            _audioSource.PlayOneShot(empanateSound);
         }
     }
 
@@ -53,6 +58,7 @@ public class EmpanateMilanesaMinigame : MonoBehaviour
             sideText.text = "Lado " + (_station.currentMilanga.currentEmpanatingSide ? "A" : "B");
             progressText.text = "Progreso " + _station.currentMilanga.GetCurrentSideEmpanation() + "/" + _station.currentMilanga.clicksNeededBySide;
             milangaImage.fillAmount = (float)_station.currentMilanga.GetCurrentSideEmpanation() / (float)_station.currentMilanga.clicksNeededBySide;
+            _audioSource.PlayOneShot(turnMilangaSound);
         }
     }
 
@@ -72,6 +78,7 @@ public class EmpanateMilanesaMinigame : MonoBehaviour
 
         yield return new WaitForEndOfFrame();
 
+        _audioSource.PlayOneShot(minigameSuccessSound);
         sideText.text = " ";
         progressText.text = "Completo!";
 
