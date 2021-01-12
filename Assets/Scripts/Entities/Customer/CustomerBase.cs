@@ -30,6 +30,8 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
     public AudioClip orderSound, happySound, angrySound;
 
+    public int moneyWhenHappy = 100, moneyWhenAngry = -50;
+
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -123,6 +125,9 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
         print("BUENO, ESPERÉ " + maxWaitTime + " Y NO ME DIERON LA ORDEN, ME TOMO EL PALO");
 
+        GameManager.Instance.AddMoneyValue(moneyWhenAngry);
+        GameManager.Instance.SpawnMoneyPrompt(this.transform.position, 100);
+
         currentChain.OnFinishedCustomer();
         currentChain = null;
 
@@ -172,12 +177,8 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         currentChain.OnFinishedCustomer();
         currentChain = null;
 
-        //HARDCODEA3
-        if (correctFood)
-        {
-            GameManager.Instance.AddMoneyValue(100);
-            GameManager.Instance.SpawnMoneyPrompt(this.transform.position, 100);
-        }
+        GameManager.Instance.AddMoneyValue(correctFood ? moneyWhenHappy : moneyWhenAngry);
+        GameManager.Instance.SpawnMoneyPrompt(this.transform.position, 100);
 
         StartCoroutine(EmotionIconTimer(correctFood));
     }
