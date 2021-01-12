@@ -1850,7 +1850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f15abe8b0719824c9c5edb7a530dc02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTimer: 300
+  levelTimer: 150
   miseEnPlaceTime: 10
   startingMoney: 500
   customerSpawner: {fileID: 0}
