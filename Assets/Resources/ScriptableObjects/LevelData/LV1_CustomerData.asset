@@ -15,11 +15,15 @@ MonoBehaviour:
   customerData:
   - spawnDelay: 0
     orderType: 0
-  - spawnDelay: 20
+  - spawnDelay: 25
     orderType: 0
-  - spawnDelay: 40
-    orderType: 1
   - spawnDelay: 50
+    orderType: 1
+  - spawnDelay: 75
     orderType: 2
-  - spawnDelay: 60
+  - spawnDelay: 100
     orderType: 3
+  - spawnDelay: 130
+    orderType: 2
+  - spawnDelay: 130
+    orderType: 2
