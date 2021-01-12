@@ -18,6 +18,7 @@ public class OrderDelivery : PickupBase
 
             foodToDeliver.SendOrderDeliveryInfo(this);
             _player.ForceDepositObject(foodPos);
+            foodToDeliver.transform.localRotation = Quaternion.Euler(Vector3.zero);
         }
         else if (!_isPickup && _player.itemPickup is OrderDelivery) //this fix is so fucking stupid I can't believe my ass/eyes
         {
