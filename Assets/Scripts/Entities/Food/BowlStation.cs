@@ -22,11 +22,27 @@ public class BowlStation : FoodStationBase
 
     public bool inMinigame;
 
+    public int maxCharges;
+    int _currentCharges;
+    public int CurrentCharges
+    {
+        get => _currentCharges;
+        private set
+        {
+            _currentCharges = Mathf.Clamp(value, 0, maxCharges);
+        }
+    }
 
     protected override void Start()
     {
         _an = GetComponentInChildren<Animator>();
+        CurrentCharges = 0;
         base.Start();
+    }
+
+    void CheckCharges()
+    {
+        if (hasEggs && hasVeggies && scrambledEggs) CurrentCharges = maxCharges;
     }
 
     public override void Interact()
@@ -69,15 +85,15 @@ public class BowlStation : FoodStationBase
             ajoPerejil.gameObject.SetActive(false);
 
             veggiesMesh.SetActive(true);
-
+            CheckCharges();
         }
-        else if(_player.itemPickup == null)
+        else if (_player.itemPickup == null)
         {
             if (!scrambledEggs && hasEggs)
             {
                 StartEggsMinigame();
             }
-            else if(currentMilanga != null && hasVeggies)
+            else if (currentMilanga != null && hasVeggies && CurrentCharges > 0)
             {
                 StartMilanesaMinigame();
             }
@@ -90,6 +106,8 @@ public class BowlStation : FoodStationBase
         normalEggMesh.SetActive(false);
         scrambledEggMesh.SetActive(true);
         scrambledEggs = true;
+
+        CheckCharges();
     }
 
     void StartMilanesaMinigame()
@@ -107,11 +125,24 @@ public class BowlStation : FoodStationBase
             _player.ForceTakeObject(currentMilanga);
 
             currentMilanga = null;
+
+            CurrentCharges--;
+            if (CurrentCharges <= 0) DepleteCharges();
         }
 
         enhuevateMinigame.gameObject.SetActive(false);
         inMinigame = false;
         _player.SetOnMinigame(false);
+    }
+
+    void DepleteCharges()
+    {
+        hasEggs = false;
+        hasVeggies = false;
+        scrambledEggs = false;
+        normalEggMesh.SetActive(false);
+        scrambledEggMesh.SetActive(false);
+        veggiesMesh.SetActive(false);
     }
 
     void StartEggsMinigame()

@@ -11864,6 +11864,7 @@ MonoBehaviour:
   whiskEggsMinigame: {fileID: 0}
   enhuevateMinigame: {fileID: 0}
   inMinigame: 0
+  maxCharges: 3
 --- !u!1 &4270015998917795239
 GameObject:
   m_ObjectHideFlags: 0

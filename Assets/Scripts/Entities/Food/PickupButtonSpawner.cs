@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class TupperButtonSpawner : MonoBehaviour, IInteractuable
+public class PickupButtonSpawner : MonoBehaviour, IInteractuable
 {
     protected Renderer _rend;
     public Collider spawningBox;
-    public PickupBase tupperPrefab;
+    public PickupBase pickupPrefab;
     public int moneyCost;
 
 
@@ -27,9 +27,9 @@ public class TupperButtonSpawner : MonoBehaviour, IInteractuable
         {
             var randompoint = GetRandomPointOnBoundingBox();
 
-            var instancedTupper = Instantiate(tupperPrefab, randompoint, Quaternion.identity);
-            instancedTupper.transform.SetParent(null);
-            instancedTupper.transform.eulerAngles = new Vector3(0, 0, 0);
+            var instancedPickup = Instantiate(pickupPrefab, randompoint, Quaternion.identity);
+            instancedPickup.transform.SetParent(null);
+            instancedPickup.transform.eulerAngles = new Vector3(0, 0, 0);
 
             GameManager.Instance.AddMoneyValue(-moneyCost);
             GameManager.Instance.SpawnMoneyPrompt(transform.position, -moneyCost);

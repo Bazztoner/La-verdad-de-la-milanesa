@@ -41,4 +41,13 @@ public class VeggieObject : MonoBehaviour
 
         minigameParent.OnChop(this);
     }
+
+    public void ResetVeggie()
+    {
+        chopped = false;
+        cutHitbox.gameObject.SetActive(true);
+
+        baseSprite.enabled = true;
+        choppedSprite.enabled = false;
+    }
 }

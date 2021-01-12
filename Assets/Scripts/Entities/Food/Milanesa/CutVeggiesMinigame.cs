@@ -48,6 +48,7 @@ public class CutVeggiesMinigame : MonoBehaviour
         endingSequence = false;
         _station = station;
         slasherPointer.enabled = false;
+        ResetMinigame();
     }
 
     void Update()
@@ -124,4 +125,12 @@ public class CutVeggiesMinigame : MonoBehaviour
         endingSequence = false;
     }
 
+    void ResetMinigame()
+    {
+        progressText.text = "";
+        foreach (var veggie in _veggies)
+        {
+            veggie.ResetVeggie();
+        }
+    }
 }

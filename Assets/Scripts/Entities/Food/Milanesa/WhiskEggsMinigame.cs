@@ -41,6 +41,8 @@ public class WhiskEggsMinigame : MonoBehaviour
         endingSequence = false;
         _station = station;
 
+        ResetMinigame();
+
         var intTime = Mathf.Lerp(3, 0, _currentWhiskingTime / whiskTime);
         bowlAn.Play(Mathf.RoundToInt(intTime).ToString());
     }
@@ -97,5 +99,14 @@ public class WhiskEggsMinigame : MonoBehaviour
 
         _station.EndEggsMinigame();
         endingSequence = false;
+    }
+
+    void ResetMinigame()
+    {
+        progressText.text = "A batir!";
+        _currentWhiskingTime = 0;
+        _audioSource.volume = 0;
+        _audioSource.loop = true;
+        _audioSource.Play();
     }
 }
