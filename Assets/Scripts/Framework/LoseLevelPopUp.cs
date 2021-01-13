@@ -11,10 +11,10 @@ public class LoseLevelPopUp : EndLevelPopUp
 
     public void Init(int delivered, int happy, int remaining, int money)
     {
-        customersDelivery.text += delivered.ToString();
-        customersHappy.text += happy.ToString();
-        customersRemaining.text += remaining.ToString();
-        moneyText.text += money.ToString();
+        customersDelivery.text += " " + delivered.ToString();
+        customersHappy.text += " " + happy.ToString();
+        customersRemaining.text += " " + remaining.ToString();
+        moneyText.text += " " + money.ToString();
         loadingContainer.SetActive(false);
     }
 }

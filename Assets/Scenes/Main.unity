@@ -1950,7 +1950,7 @@ MonoBehaviour:
   levelTimer: 180
   miseEnPlaceTime: 10
   startingMoney: 200
-  moneyToWin: 500
+  moneyToWin: 350
   customerSpawner: {fileID: 0}
   clockText: {fileID: 215671815}
   hudTimeText: {fileID: 0}
