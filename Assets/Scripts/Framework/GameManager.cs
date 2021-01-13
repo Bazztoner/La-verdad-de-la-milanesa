@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
         private set
         {
             _currentMoney = Mathf.Max(value, 0);
-            moneyBoxText.text = "$" + _currentMoney.ToString();
-            moneyBoxText.color = _currentMoney > 0 ? Color.green : Color.red;
+            moneyBoxText.text = "$" + CurrentMoney.ToString();
+            moneyBoxText.color = CurrentMoney > 0 ? Color.green : Color.red;
         }
     }
 
@@ -40,8 +40,6 @@ public class GameManager : MonoBehaviour
     public int startingMoney;
     int _currentMoney;
 
-    public int moneyToWin;
-
     public LevelCustomerList customerSpawner;
     List<CustomerBase> _idleCustomers;
 
@@ -49,7 +47,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI hudTimeText;
     public TextMeshProUGUI moneyBoxText;
     public TextMeshProUGUI hudMoneyText;
-    public TextMeshProUGUI pizarraMoneyText;
 
     public GameObject moneyPrompt;
 
@@ -73,8 +70,6 @@ public class GameManager : MonoBehaviour
 
         moneyBoxText.text = "$" + CurrentMoney.ToString();
         moneyBoxText.color = CurrentMoney > 0 ? Color.green : Color.red;
-
-        pizarraMoneyText.text = "Necesito tener " + moneyToWin + " pesos al final del día";
 
         if (clockAnimator == null) clockAnimator = GameObject.FindObjectsOfType<Animator>().First(x => x.name == "Reloj");
 
@@ -181,7 +176,7 @@ public class GameManager : MonoBehaviour
 
     public void EndLevel()
     {
-        if (CurrentMoney >= moneyToWin)
+        if (CurrentMoney > 0)
         {
             print("WIN");
             _audioSource.volume = 1;
@@ -189,8 +184,6 @@ public class GameManager : MonoBehaviour
             _audioSource.loop = false;
             _audioSource.PlayOneShot(winClip);
             _audioSource.Play();
-
-            //popup
         }
         else
         {
@@ -200,8 +193,6 @@ public class GameManager : MonoBehaviour
             _audioSource.loop = false;
             _audioSource.PlayOneShot(loseClip);
             _audioSource.Play();
-
-            //popup
         }
     }
 
