@@ -126,7 +126,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         print("BUENO, ESPERÉ " + maxWaitTime + " Y NO ME DIERON LA ORDEN, ME TOMO EL PALO");
 
         GameManager.Instance.AddMoneyValue(moneyWhenAngry);
-        GameManager.Instance.SpawnMoneyPrompt(this.transform.position, 100);
+        GameManager.Instance.SpawnMoneyPrompt(this.transform.position, moneyWhenAngry);
 
         currentChain.OnFinishedCustomer();
         currentChain = null;
@@ -178,7 +178,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         currentChain = null;
 
         GameManager.Instance.AddMoneyValue(correctFood ? moneyWhenHappy : moneyWhenAngry);
-        GameManager.Instance.SpawnMoneyPrompt(this.transform.position, 100);
+        GameManager.Instance.SpawnMoneyPrompt(this.transform.position, correctFood ? moneyWhenHappy : moneyWhenAngry);
 
         StartCoroutine(EmotionIconTimer(correctFood));
     }
