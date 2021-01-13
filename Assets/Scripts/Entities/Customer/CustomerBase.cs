@@ -127,6 +127,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
         GameManager.Instance.AddMoneyValue(moneyWhenAngry);
         GameManager.Instance.SpawnMoneyPrompt(this.transform.position, moneyWhenAngry);
+        GameManager.Instance.OnCustomerTimeOut();
 
         currentChain.OnFinishedCustomer();
         currentChain = null;
@@ -179,6 +180,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
         GameManager.Instance.AddMoneyValue(correctFood ? moneyWhenHappy : moneyWhenAngry);
         GameManager.Instance.SpawnMoneyPrompt(this.transform.position, correctFood ? moneyWhenHappy : moneyWhenAngry);
+        GameManager.Instance.OnCustomerOrderFulfilled(correctFood);
 
         StartCoroutine(EmotionIconTimer(correctFood));
     }

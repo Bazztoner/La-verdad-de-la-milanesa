@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         MouseLook();
         ScanForInteractuables();
         CheckInteract();
-        //CheckMouseInput();
+        CheckMouseInput();
 
         if (_keyboard.qKey.wasPressedThisFrame) print(_pointedInteractuable);
     }
@@ -109,12 +109,11 @@ public class PlayerController : MonoBehaviour
         return Mathf.Min(angle, to);
     }
 
-    [System.Obsolete("Old system where MouseLeft threw and MouseRight dropped")]
     void CheckMouseInput()
     {
         if (_hasItem)
         {
-            if (_mouse.leftButton.wasPressedThisFrame)
+            /*if (_mouse.leftButton.wasPressedThisFrame)
             {
                 itemPickup.Throw(8f);
                 _hasItem = false;
@@ -123,6 +122,12 @@ public class PlayerController : MonoBehaviour
             else if (_mouse.rightButton.wasPressedThisFrame)
             {
                 itemPickup.Drop();
+                _hasItem = false;
+                itemPickup = null;
+            }*/
+            if (_mouse.rightButton.wasPressedThisFrame)
+            {
+                itemPickup.Throw(8f);
                 _hasItem = false;
                 itemPickup = null;
             }
@@ -174,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
     void CheckInteract()
     {
-        if (_keyboard.fKey.wasPressedThisFrame || _mouse.leftButton.wasPressedThisFrame || _mouse.rightButton.wasPressedThisFrame)
+        if (_keyboard.fKey.wasPressedThisFrame || _mouse.leftButton.wasPressedThisFrame)
         {
             if (_hasItem)
             {

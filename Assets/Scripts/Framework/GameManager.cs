@@ -60,6 +60,16 @@ public class GameManager : MonoBehaviour
     AudioSource _audioSource;
     public AudioClip last30SecondsSound, winClip, loseClip, moneyEarned, moneyLost;
 
+    int _customersTotal, _customersHappy, _customersAngry, _customersTimeout, _customersRemaining;
+    public WinLevelPopUp winPopup;
+    public LoseLevelPopUp losePopup;
+
+    public CutVeggiesMinigame veggiesMinigame;
+    public EnhuevateMilanesaMinigame enhuevateMinigame;
+    public EmpanateMilanesaMinigame empanateMinigame;
+    public WhiskEggsMinigame eggsMinigame;
+
+
     void Start()
     {
         if (customerSpawnPoint == null) customerSpawnPoint = GameObject.Find("CustomerSpawnPoint").transform;
@@ -80,6 +90,12 @@ public class GameManager : MonoBehaviour
 
         StartCoroutine(LevelTimer());
         StartCoroutine(ClockAnimation());
+
+        _customersTotal = customerSpawner.customers.customerData.Length;
+        _customersRemaining = _customersTotal;
+
+        if (winPopup == null) winPopup = GameObject.FindObjectOfType<WinLevelPopUp>();
+        if (losePopup == null) losePopup = GameObject.FindObjectOfType<LoseLevelPopUp>();
     }
 
     IEnumerator ClockAnimation()
@@ -164,6 +180,19 @@ public class GameManager : MonoBehaviour
         else _audioSource.PlayOneShot(moneyEarned);
     }
 
+    public void OnCustomerOrderFulfilled(bool happy)
+    {
+        if (happy) _customersHappy++;
+        else _customersAngry++;
+        _customersRemaining--;
+    }
+
+    public void OnCustomerTimeOut()
+    {
+        _customersTimeout++;
+        _customersRemaining--;
+    }
+
     public void SpawnMoneyPrompt(Vector3 position, int money)
     {
         var popup = GameObject.Instantiate(moneyPrompt, position, Quaternion.identity);
@@ -181,6 +210,11 @@ public class GameManager : MonoBehaviour
 
     public void EndLevel()
     {
+        if (veggiesMinigame != null) veggiesMinigame.gameObject.SetActive(false);
+        if (empanateMinigame != null) empanateMinigame.gameObject.SetActive(false);
+        if (enhuevateMinigame != null) enhuevateMinigame.gameObject.SetActive(false);
+        if (eggsMinigame != null) eggsMinigame.gameObject.SetActive(false);
+
         if (CurrentMoney >= moneyToWin)
         {
             print("WIN");
@@ -190,7 +224,9 @@ public class GameManager : MonoBehaviour
             _audioSource.PlayOneShot(winClip);
             _audioSource.Play();
 
-            //popup
+            GameObject.FindObjectOfType<PlayerController>().SetOnMinigame(true);
+            winPopup.gameObject.SetActive(true);
+            winPopup.Init(_customersHappy + _customersAngry, _customersHappy, _customersRemaining, CurrentMoney);
         }
         else
         {
@@ -201,7 +237,9 @@ public class GameManager : MonoBehaviour
             _audioSource.PlayOneShot(loseClip);
             _audioSource.Play();
 
-            //popup
+            GameObject.FindObjectOfType<PlayerController>().SetOnMinigame(true);
+            losePopup.gameObject.SetActive(true);
+            losePopup.Init(_customersHappy + _customersAngry, _customersHappy, _customersRemaining, CurrentMoney);
         }
     }
 
