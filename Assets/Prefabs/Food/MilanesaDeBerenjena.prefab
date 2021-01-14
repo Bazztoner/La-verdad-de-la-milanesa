@@ -157,6 +157,10 @@ MonoBehaviour:
   typeOfMilanga: 2
   tickingSound: {fileID: 8300000, guid: 8b976950a9e9cff45831814ed98892f0, type: 3}
   burntSound: {fileID: 8300000, guid: 48c75e1556aa70b4590dad4c9491bd6d, type: 3}
+  enhuevatedTx: {fileID: 2800000, guid: 3389b2bd2da95124ea86ff277a2cca34, type: 3}
+  empanatedTx: {fileID: 2800000, guid: 4900eaae0501a3f42a7f6091201c0837, type: 3}
+  friedTx: {fileID: 2800000, guid: c99d55a03163efe47a5a9b6fcf57b447, type: 3}
+  burntTx: {fileID: 2800000, guid: 36f12f266623a5842a64a0af8e415272, type: 3}
   currentEmpanatingSide: 1
   currentEnhuevatingSide: 1
 --- !u!65 &847053901642728654

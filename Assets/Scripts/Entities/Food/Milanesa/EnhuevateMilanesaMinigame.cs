@@ -74,6 +74,8 @@ public class EnhuevateMilanesaMinigame : MonoBehaviour
 
 		enhuevatedImage.enabled = true;
 
+		_station.currentMilanga.IsEnhuevated();
+
 		_audioSource.PlayOneShot(enhuevateSound);
 
         if (_station.currentMilanga.IsEnhuevated())

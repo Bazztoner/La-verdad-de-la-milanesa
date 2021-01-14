@@ -32,7 +32,7 @@ public class Milanesa : FoodBase
 
     public AudioClip tickingSound, burntSound;
 
-
+    public Texture2D enhuevatedTx, empanatedTx, friedTx, burntTx;
     enum StateSprites
     {
         CookWarning,
@@ -104,16 +104,22 @@ public class Milanesa : FoodBase
     {
         if (currentEmpanatingSide) SideAClicks++;
         else SideBClicks++;
+
+        IsEmpanated();
     }
 
     public bool IsEnhuevated()
     {
-        return sideAEnhuevated && sideBEnhuevated;
+        var enhuevated = sideAEnhuevated && sideBEnhuevated;
+        if (enhuevated) _rend.material.SetTexture("_Albedo", enhuevatedTx);
+        return enhuevated;
     }
 
     public bool IsEmpanated()
     {
-        return SideAClicks >= clicksNeededBySide && SideBClicks >= clicksNeededBySide;
+        var empanated = SideAClicks >= clicksNeededBySide && SideBClicks >= clicksNeededBySide;
+        if (empanated) _rend.material.SetTexture("_Albedo", empanatedTx);
+        return empanated;
     }
 
     public override bool IsCooked()
@@ -174,6 +180,7 @@ public class Milanesa : FoodBase
                 _audioSource.volume = 1;
                 _audioSource.loop = true;
                 _audioSource.Play();
+                _rend.material.SetTexture("_Albedo",friedTx);
             }
         }
         else if (IsOvercooked())
@@ -188,6 +195,8 @@ public class Milanesa : FoodBase
                 _audioSource.clip = burntSound;
                 _audioSource.loop = false;
                 _audioSource.Play();
+
+                _rend.material.SetTexture("_Albedo", burntTx);
             }
         }
     }
