@@ -97,9 +97,6 @@ public class Milanesa : FoodBase
         currentEnhuevatingSide = !currentEnhuevatingSide;
     }
 
-    /// <summary>
-    /// TO DO change function name
-    /// </summary>
     public void OnClickMilanesaForEmpanating()
     {
         if (currentEmpanatingSide) SideAClicks++;

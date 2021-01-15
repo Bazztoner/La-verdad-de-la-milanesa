@@ -63,6 +63,7 @@ public class PickupBase : MonoBehaviour, IInteractuable
         transform.parent = null;
         _isPickup = false;
         ChangePhysicsState(true);
+        gameObject.layer = LayerMask.NameToLayer("Interactuable");
         _rb.AddForce(_player.cam.transform.forward * force, ForceMode.VelocityChange);
     }
 
