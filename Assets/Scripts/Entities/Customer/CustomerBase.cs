@@ -32,8 +32,11 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
     public int moneyWhenHappy = 100, moneyWhenAngry = -50;
 
+    bool _ordering = false;
+
     void Awake()
     {
+        _ordering = false;
         _rb = GetComponent<Rigidbody>();
         _audioSource = GetComponent<AudioSource>();
         _coll = GetComponent<Collider>();
@@ -56,6 +59,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
     public void Initialize(DeliverableFood orderType)
     {
+        _ordering = false;
         wantedFood = orderType;
 
         var allImg = speechGlobe.GetComponentsInChildren<Image>(true);
@@ -104,6 +108,8 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
     IEnumerator OrderTimeHandler()
     {
+        _ordering = true;
+
         print("PADRE, QUIERO " + wantedFood);
 
         _cnv.gameObject.SetActive(true);
@@ -137,6 +143,8 @@ public class CustomerBase : MonoBehaviour, IInteractuable
 
     IEnumerator EmotionIconTimer(bool happy)
     {
+        _ordering = false;
+
         foodIcon.gameObject.SetActive(false);
         _cnv.transform.Find("ProgressBar").gameObject.SetActive(false);
 
@@ -223,6 +231,41 @@ public class CustomerBase : MonoBehaviour, IInteractuable
     public void ActivateHighlight(bool state)
     {
         _rend.material.SetFloat("_Highlighted", state ? 1f : 0f);
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.GetComponent(typeof(IInteractuable)) is IInteractuable pickup)
+        {
+            if (pickup != null)
+            {
+                CheckHitByPickup(other.gameObject.GetComponentInChildren<Rigidbody>());
+            }
+        }
+    }
+
+    void CheckHitByPickup(Rigidbody obj)
+    {
+        if (!_ordering) return;
+
+        var forceVkt = Mathf.Abs(obj.velocity.x + obj.velocity.y + obj.velocity.z);
+
+        print(obj.name + " " + forceVkt);
+        if (forceVkt >= 1f)
+        {
+            orderRecieved = true;
+
+            print("QUE ME TIRÁS CUBILLA");
+
+            GameManager.Instance.AddMoneyValue(moneyWhenAngry);
+            GameManager.Instance.SpawnMoneyPrompt(this.transform.position, moneyWhenAngry);
+            GameManager.Instance.OnCustomerTimeOut();
+
+            currentChain.OnFinishedCustomer();
+            currentChain = null;
+
+            StartCoroutine(EmotionIconTimer(false));
+        }
     }
 }
 
