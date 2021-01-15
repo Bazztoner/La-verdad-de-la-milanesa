@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+/// <summary>
+/// EmpanatingStation
+/// </summary>
 public class MilanesaStation : FoodStationBase, IInteractuable
 {
     public int maxBreadCharges = 3;
@@ -49,8 +52,9 @@ public class MilanesaStation : FoodStationBase, IInteractuable
                 _player.ForceDepositObject(milanesaPosition);
             }
         }
-        else
+        else if (_player.itemPickup == null)
         {
+
             //start minigame if pan rallado > 0
             if (CurrentCharges > 0)
             {
