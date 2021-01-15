@@ -113,18 +113,6 @@ public class PlayerController : MonoBehaviour
     {
         if (_hasItem)
         {
-            /*if (_mouse.leftButton.wasPressedThisFrame)
-            {
-                itemPickup.Throw(8f);
-                _hasItem = false;
-                itemPickup = null;
-            }
-            else if (_mouse.rightButton.wasPressedThisFrame)
-            {
-                itemPickup.Drop();
-                _hasItem = false;
-                itemPickup = null;
-            }*/
             if (_mouse.rightButton.wasPressedThisFrame)
             {
                 itemPickup.Throw(8f);
@@ -151,7 +139,7 @@ public class PlayerController : MonoBehaviour
                         _pointedInteractuable = interact;
                         _pointedInteractuable.ActivateHighlight(true);
                     }
-                    else if (interact is FoodStationBase || interact is OrderDelivery || interact is CustomerBase)
+                    else if (interact is FoodStationBase || interact is OrderDelivery || interact is CustomerBase || interact is TrashBin)
                     {
                         var customer = interact as CustomerBase;
                         if (customer != null && customer.orderRecieved) return;
