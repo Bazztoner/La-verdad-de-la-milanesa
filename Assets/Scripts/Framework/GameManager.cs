@@ -69,6 +69,8 @@ public class GameManager : MonoBehaviour
     public EmpanateMilanesaMinigame empanateMinigame;
     public WhiskEggsMinigame eggsMinigame;
 
+    PlayerController _player;
+
 
     void Start()
     {
@@ -77,6 +79,7 @@ public class GameManager : MonoBehaviour
         customerSpawner = GetComponent<LevelCustomerList>();
         _idleCustomers = new List<CustomerBase>();
         _audioSource = GetComponent<AudioSource>();
+        _player = FindObjectOfType<PlayerController>();
 
         CurrentMoney = startingMoney;
         _currentTime = levelTimer;
@@ -196,6 +199,7 @@ public class GameManager : MonoBehaviour
     public void SpawnMoneyPrompt(Vector3 position, int money)
     {
         var popup = GameObject.Instantiate(moneyPrompt, position, Quaternion.identity);
+        popup.transform.LookAt(2* popup.transform.position - _player.cam.transform.position);
         var text = popup.GetComponentInChildren<TextMeshProUGUI>();
         text.color = money > 0 ? Color.green : money < 0 ? Color.red : Color.black;
         text.text = money > 0 ? "+" + money.ToString() : money.ToString();
