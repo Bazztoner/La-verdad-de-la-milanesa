@@ -10,10 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f300cd95358dac43bc19e6cf3388cf9, type: 3}
-  m_Name: LV1_CustomerData
+  m_Name: LV3
   m_EditorClassIdentifier: 
   customerData:
   - spawnDelay: 0
+    orderType: 2
+  - spawnDelay: 25
+    orderType: 3
+  - spawnDelay: 50
     orderType: 0
-  - spawnDelay: 0
+  - spawnDelay: 75
+    orderType: 1
+  - spawnDelay: 100
+    orderType: 2
+  - spawnDelay: 130
+    orderType: 3
+  - spawnDelay: 150
     orderType: 0
+  - spawnDelay: 180
+    orderType: 1
+  - spawnDelay: 180
+    orderType: 1
