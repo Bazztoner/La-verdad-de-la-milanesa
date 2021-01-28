@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f300cd95358dac43bc19e6cf3388cf9, type: 3}
-  m_Name: LV3_CustomerData
+  m_Name: LV3_CustomerData 1
   m_EditorClassIdentifier: 
   customerData:
   - spawnDelay: 0
