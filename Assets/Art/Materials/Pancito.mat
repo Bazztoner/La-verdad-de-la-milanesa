@@ -80,8 +80,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Power: 3
-    - _Scale: 1
+    - _Power: 2.82
+    - _Scale: 19.99
     - _Smoothness: 0.21
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1

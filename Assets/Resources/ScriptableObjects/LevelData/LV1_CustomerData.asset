@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LV1_CustomerData
   m_EditorClassIdentifier: 
   customerData:
-  - spawnDelay: 0
+  - spawnDelay: 10
     orderType: 0
-  - spawnDelay: 0
+  - spawnDelay: 10
     orderType: 0

@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviour
 
             GameObject.FindObjectOfType<PlayerController>().SetOnMinigame(true);
             winPopup.gameObject.SetActive(true);
-            winPopup.Init(_customersHappy + _customersAngry, _customersHappy, _customersRemaining, CurrentMoney);
+            winPopup.Init(_customersHappy + _customersAngry, _customersHappy, _customersRemaining-1, CurrentMoney);
         }
         else
         {
@@ -243,7 +243,42 @@ public class GameManager : MonoBehaviour
 
             GameObject.FindObjectOfType<PlayerController>().SetOnMinigame(true);
             losePopup.gameObject.SetActive(true);
-            losePopup.Init(_customersHappy + _customersAngry, _customersHappy, _customersRemaining, CurrentMoney);
+            losePopup.Init(_customersHappy + _customersAngry, _customersHappy, _customersRemaining - 1, CurrentMoney);
+        }
+    }
+
+    public void EndLevel(bool win)
+    {
+        if (veggiesMinigame != null) veggiesMinigame.gameObject.SetActive(false);
+        if (empanateMinigame != null) empanateMinigame.gameObject.SetActive(false);
+        if (enhuevateMinigame != null) enhuevateMinigame.gameObject.SetActive(false);
+        if (eggsMinigame != null) eggsMinigame.gameObject.SetActive(false);
+
+        if (win)
+        {
+            print("WIN");
+            _audioSource.volume = 1;
+            _audioSource.clip = winClip;
+            _audioSource.loop = false;
+            _audioSource.PlayOneShot(winClip);
+            _audioSource.Play();
+
+            GameObject.FindObjectOfType<PlayerController>().SetOnMinigame(true);
+            winPopup.gameObject.SetActive(true);
+            winPopup.Init(_customersHappy + _customersAngry, _customersHappy, _customersRemaining - 1, CurrentMoney);
+        }
+        else
+        {
+            print("LOSE");
+            _audioSource.volume = 1;
+            _audioSource.clip = loseClip;
+            _audioSource.loop = false;
+            _audioSource.PlayOneShot(loseClip);
+            _audioSource.Play();
+
+            GameObject.FindObjectOfType<PlayerController>().SetOnMinigame(true);
+            losePopup.gameObject.SetActive(true);
+            losePopup.Init(_customersHappy + _customersAngry, _customersHappy, _customersRemaining - 1, CurrentMoney);
         }
     }
 
