@@ -9,6 +9,7 @@ public class EndLevelPopUp : MonoBehaviour
 {
     public bool changingScene = false;
     public GameObject loadingContainer;
+    public string sceneName;
 
     public void ResetGame()
     {
@@ -23,6 +24,6 @@ public class EndLevelPopUp : MonoBehaviour
 
     void StartLoading()
     {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene(sceneName);
     }
 }

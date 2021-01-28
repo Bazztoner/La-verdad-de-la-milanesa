@@ -134,6 +134,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         GameManager.Instance.AddMoneyValue(moneyWhenAngry);
         GameManager.Instance.SpawnMoneyPrompt(this.transform.position, moneyWhenAngry);
         GameManager.Instance.OnCustomerTimeOut();
+        StartCoroutine(DelayStateEvent(5, EventType.CUSTOMER_TIMEOUT));
 
         currentChain.OnFinishedCustomer();
         currentChain = null;
@@ -168,6 +169,18 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         _walker.current = GameManager.Instance.customerSpawner.patrolOutStart;
     }
 
+    IEnumerator DelayStateEvent(float delay, EventType state)
+    {
+        yield return new WaitForSeconds(delay);
+
+        TriggerStateEvent(state);
+    }
+
+    void TriggerStateEvent(EventType state)
+    {
+        EventManager.TriggerEvent(state, this);
+    }
+
     public void GetDelivery(OrderDelivery delivery)
     {
         if (delivery.foodToDeliver == null || orderRecieved) return;
@@ -189,6 +202,9 @@ public class CustomerBase : MonoBehaviour, IInteractuable
         GameManager.Instance.AddMoneyValue(correctFood ? moneyWhenHappy : moneyWhenAngry);
         GameManager.Instance.SpawnMoneyPrompt(this.transform.position, correctFood ? moneyWhenHappy : moneyWhenAngry);
         GameManager.Instance.OnCustomerOrderFulfilled(correctFood);
+
+        if (correctFood) StartCoroutine(DelayStateEvent(5, EventType.CUSTOMER_HAPPY));
+        else StartCoroutine(DelayStateEvent(5, EventType.CUSTOMER_ANGRY));
 
         StartCoroutine(EmotionIconTimer(correctFood));
     }
@@ -260,6 +276,7 @@ public class CustomerBase : MonoBehaviour, IInteractuable
             GameManager.Instance.AddMoneyValue(moneyWhenAngry);
             GameManager.Instance.SpawnMoneyPrompt(this.transform.position, moneyWhenAngry);
             GameManager.Instance.OnCustomerTimeOut();
+            StartCoroutine(DelayStateEvent(5, EventType.CUSTOMER_TIMEOUT));
 
             currentChain.OnFinishedCustomer();
             currentChain = null;
