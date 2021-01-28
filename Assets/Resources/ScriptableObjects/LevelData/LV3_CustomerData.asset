@@ -29,5 +29,5 @@ MonoBehaviour:
     orderType: 0
   - spawnDelay: 180
     orderType: 1
-  - spawnDelay: 182
+  - spawnDelay: 180
     orderType: 1
